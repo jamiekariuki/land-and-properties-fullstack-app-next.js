@@ -1,0 +1,191 @@
+@import "./../../../theme/theme.scss";
+
+.inputs {
+	@include themify($themes) {
+		width: 100%;
+		height: 35px;
+		position: relative;
+
+		&.softbg {
+			label {
+				background-color: themed("softBackground");
+			}
+
+			input {
+				background-color: themed("softBackground");
+			}
+
+			select {
+				background-color: themed("softBackground");
+			}
+
+			.select-icon-container {
+				background-color: themed("softBackground");
+			}
+		}
+
+		label {
+			position: absolute;
+			background-color: themed("background");
+			padding: 0px 5px;
+			top: 50%;
+			left: 10px;
+			transform: translateY(-50%);
+			transition: all 0.08s;
+			pointer-events: none;
+
+			p {
+				font-size: 15px;
+				font-weight: 400;
+				color: themed("border");
+				line-height: 1;
+			}
+
+			&.label-disabled {
+				p {
+					color: themed("disabled");
+				}
+			}
+		}
+
+		input:focus + label {
+			top: -4%;
+			scale: 0.8;
+
+			p {
+				color: $main;
+			}
+		}
+
+		.input-field:not(:placeholder-shown) + label {
+			top: -4%;
+			scale: 0.8;
+		}
+
+		.input-error {
+			font-size: 11px;
+			position: absolute;
+			background-color: themed("background");
+			top: 83%;
+			left: 3%;
+			padding: 0 3px;
+			color: rgba(255, 0, 0, 0.937);
+			line-height: 1;
+		}
+
+		input {
+			background-color: themed("background");
+			width: 100%;
+			height: 100%;
+			border: 1px solid themed("border");
+			outline: none;
+			padding: 3px 7px;
+			//border-radius: 5px;
+			color: themed("titleColor");
+			transition: 0.3s ease;
+			font-family: var(--font-cormorant);
+
+			&:hover {
+				border: 1px solid themed("titleColor");
+			}
+
+			&:focus {
+				border: 1px solid $main;
+			}
+
+			&:disabled {
+				border: 1px solid themed("disabled");
+			}
+		}
+
+		select {
+			background-color: themed("background");
+			width: 100%;
+			height: 100%;
+			border: 1px solid themed("border");
+			outline: none;
+			padding: 3px 7px;
+			//border-radius: 5px;
+			color: themed("titleColor");
+			transition: 0.3s ease;
+			font-family: var(--font-cormorant);
+			cursor: pointer;
+
+			&:hover {
+				border: 1px solid themed("titleColor");
+			}
+
+			&:focus {
+				border: 1px solid $main;
+			}
+
+			&:disabled {
+				border: 1px solid themed("disabled");
+			}
+		}
+
+		.select-icon-container {
+			background-color: themed("background");
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			bottom: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			//	border-radius: 7px;
+			pointer-events: none;
+
+			.select-icon {
+				color: themed("icon");
+				font-size: 19px;
+			}
+		}
+	}
+}
+
+.inputs-ta {
+	@include themify($themes) {
+		width: 100%;
+		//height: 100px;
+		position: relative;
+
+		textarea {
+			//	border-radius: 5px;
+			border: 1px solid themed("border");
+			max-height: 150px;
+			padding: 7px;
+			resize: none;
+			width: 100%;
+			font-family: var(--font-cormorant);
+			color: themed("titleColor");
+			background-color: themed("background");
+			outline: none;
+
+			&:hover {
+				border: 1px solid themed("titleColor");
+			}
+
+			&::placeholder {
+				color: themed("border");
+			}
+
+			&.node-ta {
+				font-size: 11px;
+				padding: 5px;
+			}
+
+			&:focus {
+				border: 1px solid $main;
+			}
+
+			&:disabled {
+				border: 1px solid themed("disabled");
+
+				&::placeholder {
+					color: themed("info");
+				}
+			}
+		}
+	}
+}

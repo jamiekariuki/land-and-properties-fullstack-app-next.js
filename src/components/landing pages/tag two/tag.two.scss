@@ -1,0 +1,112 @@
+@import "./../../../theme/theme.scss";
+
+.tag-two {
+	@include themify($themes) {
+		width: 100%;
+		margin-top: 120px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0 10px;
+
+		@media (max-width: 900px) {
+			margin-top: 50px;
+		}
+
+		.tag-2-info {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 60vw;
+			flex-wrap: wrap;
+			gap: 20px;
+
+			@media (max-width: 800px) {
+				width: 100%;
+			}
+
+			.tag-2-c {
+				h6 {
+					color: $secondary;
+				}
+
+				button {
+					padding: 5px 10px;
+					border: 1px solid $secondary;
+					cursor: pointer;
+					background-color: transparent;
+
+					p {
+						color: $secondary;
+					}
+				}
+			}
+		}
+
+		.tag-2 {
+			margin-top: 30px;
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 5vw;
+			justify-content: center;
+			padding: 10px;
+
+			@media (max-width: 800px) {
+				gap: 3vw;
+			}
+
+			.tag-2-box-container {
+				width: 200px;
+				height: 200px;
+				position: relative;
+
+				@media (max-width: 500px) {
+					width: 150px;
+					height: 200px;
+				}
+
+				/* .icon-backdrop {
+                        height: 100px;
+                        width: 100px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 3;
+                        border-radius: 50%;
+                        filter: blur(60px);
+                        background-color: $main;
+                    } */
+
+				.tag-2-container {
+					position: absolute;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					inset: 0;
+					padding: 10px;
+					z-index: 5;
+
+					.icon-container {
+						width: 100%;
+						display: flex;
+						justify-content: center;
+
+						.tag-2-icon {
+							font-size: 30px;
+							z-index: 5;
+							color: $secondary;
+						}
+					}
+
+					h3 {
+						color: $secondary;
+					}
+				}
+			}
+		}
+	}
+}

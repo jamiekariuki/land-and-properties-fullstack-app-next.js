@@ -1,0 +1,145 @@
+@import "./../theme/theme.scss";
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+//-------
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(114, 114, 114, 0.605);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	font-family: inherit;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+$lightText: rgb(32, 32, 32);
+$darkText: rgb(181, 181, 181);
+
+.theme-light {
+	background-color: $lightBackround;
+	color: black;
+
+	//---------------------------------------
+	h1,
+	h2 {
+		font-size: clamp(40px, 5vw, 70px);
+		line-height: 1;
+		font-weight: 400;
+		color: rgb(32, 32, 32);
+	}
+	h2 {
+		color: $lightText;
+	}
+	//---------------------------------------
+	h3,
+	h4 {
+		font-size: clamp(28px, 3vw, 40px);
+		font-weight: 600;
+		color: rgb(32, 32, 32);
+		line-height: 1.2;
+	}
+	h4 {
+		color: $lightText;
+	}
+	//---------------------------------------
+	h5 {
+		color: rgb(32, 32, 32);
+		font-size: clamp(14px, 2vw, 17px);
+		font-weight: 700;
+	}
+	//---------------------------------------
+	h6,
+	p,
+	li {
+		font-size: clamp(18px, 2vw, 20px);
+		line-height: 1.2;
+		font-weight: 500;
+		color: $lightText;
+	}
+	h6,
+	li {
+		color: rgb(32, 32, 32);
+	}
+}
+//************************************************************************
+.theme-dark {
+	background-color: $darkBackround;
+	color: white;
+
+	//---------------------------------------
+	h1,
+	h2 {
+		font-size: clamp(40px, 5vw, 70px);
+		color: rgb(242, 242, 242);
+		line-height: 1;
+	}
+	h2 {
+		color: $darkText;
+	}
+	//---------------------------------------
+	h3,
+	h4 {
+		font-size: clamp(28px, 3vw, 40px);
+		font-weight: 600;
+		color: rgb(242, 242, 242);
+		font-weight: 500;
+	}
+	h4 {
+		color: $darkText;
+	}
+	//---------------------------------------
+	h5 {
+		color: rgb(242, 242, 242);
+		font-size: clamp(14px, 2vw, 17px);
+		font-weight: 700;
+	}
+	//---------------------------------------
+	h6,
+	p,
+	li {
+		font-size: clamp(18px, 2vw, 20px);
+		line-height: 1.2;
+		font-weight: 500;
+		color: $darkText;
+	}
+	h6,
+	li {
+		color: white;
+	}
+}
+
+h1,
+h2 {
+	font-family: var(--font-bodoni);
+}
+
+h3,
+h4,
+h5,
+h6,
+li,
+p {
+	font-family: var(--font-cormorant);
+}
+
+.pages {
+	width: 100%;
+}

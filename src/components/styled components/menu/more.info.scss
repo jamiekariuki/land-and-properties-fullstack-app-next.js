@@ -1,0 +1,36 @@
+@import "./../../../theme/theme.scss";
+
+.more-info-container {
+	@include themify($themes) {
+		.schedules-btn {
+			p {
+				color: white;
+				font-size: 12px;
+				text-transform: lowercase;
+			}
+		}
+	}
+}
+
+.form-select {
+	@include themify($themes) {
+		scale: 0.85;
+		.form-controller {
+			width: 100%;
+
+			.select-container {
+				border-radius: 7px;
+				background-color: themed("background");
+			}
+		}
+	}
+}
+
+.MuiPaper-root {
+	border-radius: 6px;
+	z-index: 10000000;
+}
+
+.MuiMenu-root {
+	z-index: 10000000;
+}

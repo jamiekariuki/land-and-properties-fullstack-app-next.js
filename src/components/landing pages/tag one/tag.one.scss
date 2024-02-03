@@ -1,0 +1,51 @@
+@import "../../../theme/theme.scss";
+
+.tag-one {
+	@include themify($themes) {
+		background-color: $main;
+
+		@media (max-width: 900px) {
+			height: auto;
+		}
+
+		.split-left {
+			.land-image {
+				position: relative;
+				top: 70px;
+				right: 30px;
+				height: 400px;
+				width: 480px;
+
+				.l-image {
+					object-fit: cover;
+				}
+
+				@media (max-width: 900px) {
+					top: 0;
+					right: 0;
+					height: clamp(250px, 50vw, 400px);
+					width: 100%;
+				}
+			}
+		}
+
+		.split-right {
+			.right-l {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				max-width: 500px;
+
+				h6 {
+					color: $secondary;
+				}
+				h3 {
+					color: white;
+				}
+				p {
+					color: white;
+				}
+			}
+		}
+	}
+}
