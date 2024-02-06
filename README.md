@@ -1,36 +1,33 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# PeculiarMarc Real Estate Platform
+
+Welcome to the PeculiarMarc Real Estate Platform! This project is a proprietary web application built exclusively for PeculiarMarc, a company specializing in lands and properties in Kenya. It incorporates Next.js 14, MongoDB, NextAuth, Amazon S3, and other technologies to provide a robust solution for managing real estate assets.
+
+## Features
+
+- **Server Side Rendering**: Utilizes Next.js for server-side rendering, enhancing performance and SEO optimization.
+- **CRUD Operations**: Implements full CRUD functionality for managing property listings efficiently.
+- **Infinity Scrolling**: Enables seamless browsing with infinite scrolling for a smooth user experience.
+- **Admin Dashboard**: Administrators have access to a dedicated dashboard for managing users, properties, and other platform aspects.
+- **Email Sending**: Integrates with email services for automated notifications on new listings and account updates.
+
+## Technologies Used
+
+- Next.js 14
+- MongoDB
+- NextAuth
+- Amazon S3 (for file storage)
+
 ## Getting Started
 
-First, run the development server:
+As this repository is not intended for public use, there are no instructions provided for setting up or running the application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## License
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is proprietary and owned by PeculiarMarc. Unauthorized use or reproduction is strictly prohibited.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Contact
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+For inquiries or support related to the PeculiarMarc Real Estate Platform, please contact PeculiarMarc directly at [info@peculiarmarc.com](mailto:info@peculiarmarc.com).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
