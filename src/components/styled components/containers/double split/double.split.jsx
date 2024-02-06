@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import "./double.split.scss";
 
-const DoubleSPlit = ({ image, content, flexReverse, contain }) => {
+const DoubleSPlit = ({ image, content, flexReverse, contain, fill }) => {
 	return (
 		<div className="double-split">
 			<SplitLayout flexReverse={flexReverse}>
@@ -11,7 +11,13 @@ const DoubleSPlit = ({ image, content, flexReverse, contain }) => {
 					className="split-left"
 					style={{ justifyContent: flexReverse && "flex-start" }}
 				>
-					<div className="double-split-image-container">
+					<div
+						className="double-split-image-container"
+						style={{
+							width: fill ? "100%" : "",
+							height: fill ? "100%" : "",
+						}}
+					>
 						<Image
 							style={{ objectFit: contain && "contain" }}
 							alt="product image"

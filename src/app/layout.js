@@ -3,10 +3,9 @@ import { Cormorant, Bodoni_Moda } from "next/font/google";
 import { ThemeProvider2 } from "@/context/themeContext";
 import { cookies } from "next/headers";
 import Footer from "@/components/landing footer/footer";
-
 //import Toast from "@/components/styled components/toast/toast";
-//import { ToastProvider } from "@/context/ToastContext";
-//import LandingNavbar from "@/components/landing pages/navbar/landing.navbar";
+///import { ToastProvider } from "@/context/ToastContext";
+import LandingNavbar from "@/components/landing pages/navbar/landing.navbar";
 
 //fonts
 const cormorant = Cormorant({
@@ -46,8 +45,8 @@ export default function RootLayout({ children }) {
 			<body>
 				{/* <ToastProvider> */}
 				<ThemeProvider2 serverDarkMode={darkMode}>
-					{/* <Navbar />
-					<Sidebar /> */}
+					<Navbar />
+					<Sidebar />
 					<div className="pages">{children}</div>
 					<Footer />
 					<div id="portal" />
