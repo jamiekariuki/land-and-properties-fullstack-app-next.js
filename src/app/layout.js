@@ -2,10 +2,11 @@ import "./globals.scss";
 import { Cormorant, Bodoni_Moda } from "next/font/google";
 import { ThemeProvider2 } from "@/context/themeContext";
 import { cookies } from "next/headers";
+import Navbar from "@/components/landing navbar/navbar";
+import Sidebar from "@/components/landing navbar/sidebar/Sidebar";
 import Footer from "@/components/landing footer/footer";
 //import Toast from "@/components/styled components/toast/toast";
 ///import { ToastProvider } from "@/context/ToastContext";
-import LandingNavbar from "@/components/landing pages/navbar/landing.navbar";
 
 //fonts
 const cormorant = Cormorant({
