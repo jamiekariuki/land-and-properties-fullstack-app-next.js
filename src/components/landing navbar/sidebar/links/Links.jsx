@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { links } from "../../nav.links";
 
 const variants = {
 	open: {
@@ -25,21 +27,11 @@ const itemVariants = {
 };
 
 const Links = ({ closeNav, bg }) => {
-	const items = [
-		"Home",
-		"About Us",
-		"Services",
-		"Gallery",
-		"Contact Us",
-		"Blog",
-	];
-
 	return (
 		<motion.div className="links" variants={variants}>
-			{items.map((item) => (
-				<motion.a
-					href={`#${item}`}
-					key={item}
+			{links.map((item, index) => (
+				<motion.p
+					key={index}
 					variants={itemVariants}
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.95 }}
@@ -48,8 +40,8 @@ const Links = ({ closeNav, bg }) => {
 						color: bg && "transparent",
 					}}
 				>
-					{item}
-				</motion.a>
+					<Link href={item.href}> {item.name}</Link>
+				</motion.p>
 			))}
 		</motion.div>
 	);

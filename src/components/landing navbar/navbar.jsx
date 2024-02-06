@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import "./navbar.scss";
 import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import Link from "next/link";
+import { links } from "./nav.links";
 
 const Navbar = () => {
 	const [nav, setNav] = useState();
@@ -65,12 +67,31 @@ const Navbar = () => {
 
 			<div className="links">
 				<ul>
-					<li>Home</li>
-					<li>About Us</li>
-					<li>Properties</li>
-					<li>Gallery</li>
-					<li>Contact Us</li>
-					<li>Blog</li>
+					{/* <Link href={"/"}>
+						<li>Home</li>
+					</Link>
+					<Link href={"/about-us"}>
+						<li>About Us</li>
+					</Link>
+					<Link href={"/gallery"}>
+						<li>Gallery</li>
+					</Link>
+					<Link href={"/"}>
+						<li>Properties</li>
+					</Link>
+					<Link href={"/contact-us"}>
+						<li>Contact Us</li>
+					</Link>
+					<Link href={"/"}>
+						<li>Blog</li>
+					</Link> */}
+					<ul>
+						{links.map((link, index) => (
+							<li key={index}>
+								<Link href={link.href}>{link.name}</Link>
+							</li>
+						))}
+					</ul>
 				</ul>
 			</div>
 		</motion.nav>
