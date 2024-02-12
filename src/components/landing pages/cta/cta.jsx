@@ -6,7 +6,7 @@ const Cta = () => {
 	return (
 		<div className="cta">
 			<div className="cta-info">
-				<h1>Uncover Property Opportunities</h1>
+				<h3>Uncover Property Opportunities</h3>
 				<p>
 					Explore our extensive selection of land options, ranging
 					from residential to commercial. Find the perfect plot to

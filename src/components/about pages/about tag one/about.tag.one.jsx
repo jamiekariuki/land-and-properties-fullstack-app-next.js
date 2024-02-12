@@ -117,7 +117,7 @@ const AboutTagOne = () => {
 				}
 				flexReverse={true}
 			/>
-
+			<div style={{ height: "20px" }} />
 			<DoubleSPlit
 				image={
 					"https://i.postimg.cc/xdLBJS8Z/Whats-App-Image-2024-02-02-at-01-31-55.jpg"
