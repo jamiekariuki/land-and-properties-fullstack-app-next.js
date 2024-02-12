@@ -7,6 +7,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 70px 15px;
+		overflow: hidden;
 
 		.property-container {
 			width: 100%;
@@ -27,6 +28,10 @@
 					flex: 3;
 					aspect-ratio: 1/1;
 					min-width: 300px;
+
+					@media (max-width: 450px) {
+						min-width: none;
+					}
 
 					.pt-slider-container {
 						width: 100%;
@@ -72,6 +77,10 @@
 				.pt-right {
 					flex: 2;
 					min-width: 300px;
+
+					@media (max-width: 450px) {
+						min-width: none;
+					}
 
 					.property-info {
 						height: 100%;
@@ -254,7 +263,7 @@
 					@media (max-width: 450px) {
 						grid-template-columns: repeat(
 							auto-fit,
-							minmax(100px, 500px)
+							minmax(100px, 100%)
 						);
 					}
 				}

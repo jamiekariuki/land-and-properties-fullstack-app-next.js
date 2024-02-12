@@ -7,7 +7,7 @@ const AboutPage = () => {
 			<PageHero
 				title={"About Us"}
 				image={
-					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
+					"https://i.postimg.cc/d0xmcZhN/pexels-pok-rie-6225499.jpg"
 				}
 			/>
 			<AboutTagOne />

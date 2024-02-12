@@ -20,10 +20,7 @@ const TagOne = () => {
 				</div>
 				<div className="split-right">
 					<div className="right-l">
-						<h6>
-							Discover Endless Possibilities with Peculiarmarc
-							Ventures Limited
-						</h6>
+						<h6>Discover Endless Possibilities.</h6>
 						<h3>Land Opportunities Await</h3>
 						<p>
 							Explore endless possibilities with Peculiarmarc

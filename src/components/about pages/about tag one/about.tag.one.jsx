@@ -44,10 +44,10 @@ const AboutTagOne = () => {
 			<div className="a-tag-second">
 				<DoubleSPlit
 					image={
-						"https://i.postimg.cc/xdLBJS8Z/Whats-App-Image-2024-02-02-at-01-31-55.jpg"
+						"https://i.postimg.cc/Zqx3BXVQ/Whats-App-Image-2024-02-02-at-20-58-32.jpg"
 					}
 					content={
-						<>
+						<div style={{ padding: "15px" }}>
 							<h3>Our Mission:</h3>
 							<p>
 								To provide an outstanding level of service,
@@ -63,7 +63,7 @@ const AboutTagOne = () => {
 								offering exceptional service and utmost customer
 								satisfaction.
 							</p>
-						</>
+						</div>
 					}
 					fill={true}
 				/>
@@ -88,7 +88,7 @@ const AboutTagOne = () => {
 
 			<DoubleSPlit
 				image={
-					"https://i.postimg.cc/xdLBJS8Z/Whats-App-Image-2024-02-02-at-01-31-55.jpg"
+					"https://i.postimg.cc/Zqx3BXVQ/Whats-App-Image-2024-02-02-at-20-58-32.jpg"
 				}
 				content={
 					<>
@@ -120,7 +120,7 @@ const AboutTagOne = () => {
 			<div style={{ height: "20px" }} />
 			<DoubleSPlit
 				image={
-					"https://i.postimg.cc/xdLBJS8Z/Whats-App-Image-2024-02-02-at-01-31-55.jpg"
+					"https://i.postimg.cc/Pq8w4Lf0/Whats-App-Image-2024-02-02-at-01-31-54.jpg"
 				}
 				content={
 					<>
