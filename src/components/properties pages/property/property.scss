@@ -249,7 +249,6 @@
 				.similar-properties-container {
 					margin: 20px;
 					height: auto;
-					width: 100%;
 					display: grid;
 					grid-auto-rows: minmax(250px, auto);
 					grid-template-columns: repeat(
@@ -261,10 +260,10 @@
 					align-content: flex-start;
 
 					@media (max-width: 450px) {
-						/* grid-template-columns: repeat(
+						grid-template-columns: repeat(
 							auto-fit,
 							minmax(100px, 100%)
-						); */
+						);
 					}
 				}
 			}
