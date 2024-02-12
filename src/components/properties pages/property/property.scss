@@ -261,10 +261,10 @@
 					align-content: flex-start;
 
 					@media (max-width: 450px) {
-						grid-template-columns: repeat(
+						/* grid-template-columns: repeat(
 							auto-fit,
 							minmax(100px, 100%)
-						);
+						); */
 					}
 				}
 			}
