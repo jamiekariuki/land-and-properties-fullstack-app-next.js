@@ -96,7 +96,7 @@
 						justify-content: center;
 
 						.tag-2-icon {
-							font-size: 30px;
+							font-size: 26px;
 							z-index: 5;
 							color: $secondary;
 						}
@@ -104,6 +104,7 @@
 
 					h3 {
 						color: $secondary;
+						font-size: clamp(24px, 3vw, 32px);
 					}
 				}
 			}

@@ -5,7 +5,9 @@ const TagSix = () => {
 	return (
 		<div style={{ width: "100%", marginTop: "40px" }}>
 			<DoubleSPlit
-				image={"https://i.postimg.cc/K4XPW6s9/village-view-from.jpg"}
+				image={
+					"https://i.postimg.cc/MG93YJNN/pexels-nico-becker-5850641.jpg"
+				}
 				content={
 					<>
 						<h3>Our Core Values</h3>

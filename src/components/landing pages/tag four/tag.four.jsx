@@ -7,7 +7,7 @@ const TagFour = () => {
 		<div style={{ width: "100%", marginTop: "40px" }}>
 			<DoubleSPlit
 				image={
-					"https://i.postimg.cc/xdLBJS8Z/Whats-App-Image-2024-02-02-at-01-31-55.jpg"
+					"https://i.postimg.cc/4xnF1brw/Whats-App-Image-2024-02-02-at-20-56-26.jpg"
 				}
 				content={
 					<>

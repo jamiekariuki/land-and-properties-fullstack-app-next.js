@@ -88,7 +88,7 @@ const AboutTagOne = () => {
 
 			<DoubleSPlit
 				image={
-					"https://i.postimg.cc/Zqx3BXVQ/Whats-App-Image-2024-02-02-at-20-58-32.jpg"
+					"https://i.postimg.cc/m2nSTx5N/Whats-App-Image-2024-02-02-at-17-24-47-2.jpg"
 				}
 				content={
 					<>

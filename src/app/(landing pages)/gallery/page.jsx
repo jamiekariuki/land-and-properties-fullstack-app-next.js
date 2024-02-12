@@ -8,7 +8,7 @@ const AboutPage = () => {
 			<PageHero
 				title={"Gallery"}
 				image={
-					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
+					"https://i.postimg.cc/MG93YJNN/pexels-nico-becker-5850641.jpg"
 				}
 			/>
 			<GalleryTagOne />

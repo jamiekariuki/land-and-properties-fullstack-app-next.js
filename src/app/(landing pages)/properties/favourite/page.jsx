@@ -8,7 +8,7 @@ const FavouritePage = () => {
 			<PageHero
 				title={"Favourite"}
 				image={
-					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
+					"https://i.postimg.cc/8cWmpXh7/pexels-mehmet-turgut-kirkgoz-4832350.jpg"
 				}
 			/>
 			<FavouriteProperties />

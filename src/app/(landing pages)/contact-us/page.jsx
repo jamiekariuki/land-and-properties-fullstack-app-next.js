@@ -7,9 +7,7 @@ const Contactpage = () => {
 		<div>
 			<PageHero
 				title={"Contact Us"}
-				image={
-					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
-				}
+				image={"https://i.postimg.cc/G38zdRng/aerial-view-village.jpg"}
 			/>
 			<ContactTagOne />
 			<Cta />

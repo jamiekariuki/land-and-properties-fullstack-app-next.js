@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const variants = {
 	initial: {
@@ -35,10 +35,11 @@ export const sliderData = [
 					Unlock Possibilities! Discover prime plots for sale in
 					Kenya. Your canvas for dreams and investments starts here.
 				</motion.p>
-
-				<motion.button variants={variants}>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button variants={variants}>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},
@@ -60,9 +61,11 @@ export const sliderData = [
 					journey waiting to unfold.
 				</motion.p>
 
-				<motion.button>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},
@@ -84,9 +87,11 @@ export const sliderData = [
 					experience that resonates with your aspirations.
 				</motion.p>
 
-				<motion.button variants={variants}>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button variants={variants}>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},
@@ -108,9 +113,11 @@ export const sliderData = [
 					transform your dreams into reality.
 				</motion.p>
 
-				<motion.button variants={variants}>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button variants={variants}>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},
@@ -132,9 +139,11 @@ export const sliderData = [
 					hidden beauty and potential.
 				</motion.p>
 
-				<motion.button variants={variants}>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button variants={variants}>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},
@@ -156,9 +165,11 @@ export const sliderData = [
 					property but a piece of the natural world.
 				</motion.p>
 
-				<motion.button variants={variants}>
-					<h5>View More</h5>
-				</motion.button>
+				<Link href={"/properties"}>
+					<motion.button variants={variants}>
+						<h5>View More</h5>
+					</motion.button>
+				</Link>
 			</motion.div>
 		),
 	},

@@ -8,7 +8,7 @@ const Propertiespage = () => {
 			<PageHero
 				title={"Properties"}
 				image={
-					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
+					"https://i.postimg.cc/3JSs6nKg/pexels-arthouse-studio-4326847.jpg"
 				}
 			/>
 			<Properties />
