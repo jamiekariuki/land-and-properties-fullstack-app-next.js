@@ -13,7 +13,7 @@ const Properties = () => {
 					<PropertiesFilter />
 				</div>
 				{PropertiesData.map((item, index) => (
-					<div className="card2-container" key={index}>
+					<div className="card-container" key={index}>
 						<PropertiesCard item={item} />
 					</div>
 				))}
