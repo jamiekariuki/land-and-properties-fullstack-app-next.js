@@ -1,20 +1,23 @@
 import React from "react";
 import "./cta.scss";
+import Link from "next/link";
 
 const Cta = () => {
 	return (
 		<div className="cta">
 			<div className="cta-info">
-				<h1>Quib repellendus odit</h1>
+				<h1>Uncover Property Opportunities</h1>
 				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Voluptas, necessitatibus, nam doloribus rerum praesentium,
-					animi quibusdam omnis repellendus odit blanditiis.
+					Explore our extensive selection of land options, ranging
+					from residential to commercial. Find the perfect plot to
+					suit your needs and aspirations
 				</p>
 				<div>
-					<button>
-						<p>See Properties</p>
-					</button>
+					<Link href={"/properties"}>
+						<button>
+							<p>See Properties</p>
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>

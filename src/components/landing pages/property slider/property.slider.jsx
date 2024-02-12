@@ -40,7 +40,7 @@ export const PropertySlider = () => {
 	return (
 		<div className="property-slider">
 			<div className="property-slider-heading">
-				<h3>Catalogue</h3>
+				<h3>Featured Properties</h3>
 
 				<div className="slider-container">
 					<CardSlider settings={settings} wrapper={true}>

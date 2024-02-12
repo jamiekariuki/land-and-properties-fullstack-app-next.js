@@ -2,52 +2,40 @@ import React from "react";
 import "./tag.five.scss";
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
+import { PropertiesData } from "@/components/properties pages/properties/property";
 
 const TagFive = () => {
-	const property = [
-		{
-			title: "Title",
-			sub: "sub tile any thing",
-			image: "https://i.postimg.cc/bvk6NJpy/pexels-tom-fisk-5972213.jpg",
-		},
-		{
-			title: "Title",
-			sub: "sub tile any thing",
-			image: "https://i.postimg.cc/K4XPW6s9/village-view-from.jpg",
-		},
-		{
-			title: "Title",
-			sub: "sub tile any thing",
-			image: "https://i.postimg.cc/3JSs6nKg/pexels-arthouse-studio-4326847.jpg",
-		},
-	];
-
 	return (
 		<div className="tag-5">
 			<div className="tag-5-info">
 				<div className="t5-left">
-					<h3>Sub tile any thing</h3>
+					<h3>Our Real Estate Influence</h3>
 				</div>
 				<div className="t5-right">
 					<div className="count-cont">
-						<h3>249 +</h3>
-						<p>Lorem ipsum dolor sit, amet consectetur</p>
+						<h3>120 +</h3>
+						<p>Transformed landscapes for delighted homeowners</p>
 					</div>
 					<div className="count-cont">
-						<h3> 60%</h3>
-						<p>Lorem ipsum dolor sit, amet consectetur</p>
+						<h3> 96%</h3>
+						<p>Homebuyers who found their dream property with us</p>
 					</div>
 					<div className="count-cont">
-						<h3>489</h3>
-						<p>Lorem ipsum dolor sit, amet consectetur</p>
+						<h3>100 +</h3>
+						<p>Properties sold to satisfied clients and counting</p>
 					</div>
 				</div>
 			</div>
+
+			<div className="tag-5-t">
+				<h3>Popular Properties</h3>
+			</div>
+
 			<div className="tag-5-images">
-				{property.map((data, index) => (
+				{PropertiesData.slice(0, 3).map((data, index) => (
 					<div key={index} className="tag-5-card-container">
 						<Image
-							src={data.image}
+							src={data.picture[0]}
 							alt="property photo"
 							fill={true}
 							className="tag-5-property-image"
@@ -55,16 +43,16 @@ const TagFive = () => {
 
 						<div className="backdrop-container">
 							<div className="backdrop-details">
-								<h3>{data.title}</h3>
+								<h3>{data.location}</h3>
 
 								<div className="sub">
 									<h5>
-										{data.sub
+										{data.description
 											.split(" ")
 											.slice(0, 10)
 											.join(" ")}
-										{data.sub.split(" ").length > 10 &&
-											" ..."}
+										{data.description.split(" ").length >
+											10 && " ..."}
 									</h5>
 								</div>
 

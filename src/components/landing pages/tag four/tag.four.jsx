@@ -1,4 +1,5 @@
 import DoubleSPlit from "@/components/styled components/containers/double split/double.split";
+import Link from "next/link";
 import React from "react";
 
 const TagFour = () => {
@@ -10,19 +11,25 @@ const TagFour = () => {
 				}
 				content={
 					<>
-						<h3>Lorem, ipsum dolor consectetur</h3>
+						<h3>Our Strategic Approach</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Necessitatibus quidem hic accusamus dolorem
-							natus numquam maiores quis non corrupti, cupiditate,
-							quam autem ut, corporis libero optio sapiente itaque
-							porro molestias!
+							Explore our distinctive methodology, built on strong
+							networks and valued partnerships with government
+							ministries, competent lawyers, and leading financial
+							providers like KCB Bank and Cooperative Bank of
+							Kenya. Through patronage and excellent customer
+							treatment, we've fostered a community of satisfied
+							clients, driving the growth of Peculiarmarc Ventures
+							Limited. Click to delve deeper into how our approach
+							sets us apart
 						</p>
 
 						<div>
-							<button>
-								<p>Read More</p>
-							</button>
+							<Link href={"./about-us"}>
+								<button>
+									<p>Read More</p>
+								</button>
+							</Link>
 						</div>
 					</>
 				}

@@ -4,12 +4,13 @@ import "./footer.scss";
 import {
 	BsFacebook,
 	BsInstagram,
-	BsMailbox,
-	BsPin,
 	BsTelephone,
 	BsTwitter,
 } from "react-icons/bs";
 import Link from "next/link";
+import { links } from "../landing navbar/nav.links";
+import { BsEnvelope } from "react-icons/bs";
+import { BsPinMapFill } from "react-icons/bs";
 
 const Footer = () => {
 	const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -58,12 +59,11 @@ const Footer = () => {
 								Perculiarmarc <span>Ventures</span>
 							</h6>
 							<p>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Animi et aliquid aliquam,
-								perspiciatis dolores odit neque, veniam ullam
-								similique atque iure non placeat? Voluptate,
-								praesentium soluta minima eveniet provident
-								distinctio.
+								You're welcome to drop by our offices located at
+								EPZ Plaza, 2nd Floor, on EPZ Road in Kitengela
+								Town, Kajiado County. Should you prefer to reach
+								us by mail, our postal address is P.O. Box
+								1074-00241. We're here to assist you.
 							</p>
 						</div>
 					</div>
@@ -71,41 +71,67 @@ const Footer = () => {
 				<div className="footer-cont footer-middle">
 					<div className="fm-cont">
 						<ul>
-							<li>Home</li>
-							<li>About Us</li>
-							<li>Properties</li>
-							<li>Gallery</li>
-							<li>Contact Us</li>
-							<li>Blog</li>
+							<ul>
+								{links.map((link, index) => (
+									<li key={index}>
+										<Link href={link.href}>
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
 						</ul>
 					</div>
 				</div>
 				<div className="footer-cont footer-right">
 					<div className="fr-cont">
-						<div className="social-links">
-							<BsInstagram className="footer-icon" />
-							<p>Perculiarmarc</p>
-						</div>
-						<div className="social-links">
-							<BsTwitter className="footer-icon" />
-							<p>Perculiarmarc</p>
-						</div>
-						<div className="social-links">
-							<BsFacebook className="footer-icon" />
-							<p>Perculiarmarc</p>
-						</div>
+						<Link
+							href={
+								"https://www.instagram.com/peculiarmarcventures/"
+							}
+						>
+							<div className="social-links">
+								<BsInstagram className="footer-icon" />
+								<p>peculiarmarcventures</p>
+							</div>
+						</Link>
+						<Link
+							href={
+								"https://twitter.com/peculiarmarc?ref_src=twsrc%5Etfw&s=09"
+							}
+						>
+							<div className="social-links">
+								<BsTwitter className="footer-icon" />
+								<p>@Perculiarmarc</p>
+							</div>
+						</Link>
+						<Link
+							href={
+								"https://www.facebook.com/Peculiarmarc-Ventures-Co-Ltd-325539414738828"
+							}
+						>
+							<div className="social-links">
+								<BsFacebook className="footer-icon" />
+								<p>Peculiarmarc-Ventures</p>
+							</div>
+						</Link>
 						<div className="social-links">
 							<BsTelephone className="footer-icon" />
-							<p>Perculiarmarc</p>
+							<p>+254 701 944 155</p>
 						</div>
 						<div className="social-links">
-							<BsMailbox className="footer-icon" />
-							<p>Perculiarmarc</p>
+							<BsEnvelope className="footer-icon" />
+							<p>info@peculiarmarc.co.ke</p>
 						</div>
-						<div className="social-links">
-							<BsPin className="footer-icon" />
-							<p>Perculiarmarc</p>
-						</div>
+
+						<Link
+							href={"https://maps.app.goo.gl/SRPUieQBxL3pgEGz6"}
+						>
+							<div className="social-links">
+								<BsPinMapFill className="footer-icon" />
+								<p>EPZ PLAZA, 2nd Flr, Kitengela Town</p>
+							</div>
+						</Link>
 					</div>
 				</div>
 			</div>

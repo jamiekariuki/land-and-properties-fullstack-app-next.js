@@ -8,20 +8,22 @@ const TagSix = () => {
 				image={"https://i.postimg.cc/K4XPW6s9/village-view-from.jpg"}
 				content={
 					<>
-						<h3>Lorem, ipsum dolor consectetur</h3>
+						<h3>Our Core Values</h3>
 
 						<ol>
-							<li>Lorem ipsum dolor sit amet</li>
-							<li>Lorem ipsum dolor sit amet</li>
-							<li>Lorem ipsum dolor sit amet</li>
-							<li>Lorem ipsum dolor sit amet</li>
-							<li>Lorem ipsum dolor sit amet</li>
+							<li>Integrity</li>
+							<li>Customer Service Excellence</li>
+							<li>Professionalism</li>
+							<li>Entrepreneurship</li>
+							<li>Teamwork</li>
+							<li>Social Responsibility</li>
 						</ol>
 
 						<p>
-							Alias esse corrupti officia fugiat sequi repellendus
-							magni ex eaque nesciunt, consectetur distinctio
-							laboriosam saepe accusamus libero!
+							We uphold these principles in every interaction.
+							With a focus on social responsibility and
+							excellence, we aim to positively impact our clients,
+							employees, and community.
 						</p>
 					</>
 				}

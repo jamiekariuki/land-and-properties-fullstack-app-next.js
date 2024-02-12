@@ -1,6 +1,6 @@
 "use client";
 import "./inputs.scss";
-import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const SelectOption = ({
 	list,
@@ -38,7 +38,7 @@ const SelectOption = ({
 				))}
 			</select>
 			<div className="select-icon-container">
-				<UnfoldMoreIcon className="select-icon" />
+				<MdKeyboardArrowDown className="select-icon" />
 			</div>
 		</div>
 	);

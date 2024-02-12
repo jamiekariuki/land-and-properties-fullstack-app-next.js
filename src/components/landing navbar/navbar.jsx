@@ -67,31 +67,11 @@ const Navbar = () => {
 
 			<div className="links">
 				<ul>
-					{/* <Link href={"/"}>
-						<li>Home</li>
-					</Link>
-					<Link href={"/about-us"}>
-						<li>About Us</li>
-					</Link>
-					<Link href={"/gallery"}>
-						<li>Gallery</li>
-					</Link>
-					<Link href={"/"}>
-						<li>Properties</li>
-					</Link>
-					<Link href={"/contact-us"}>
-						<li>Contact Us</li>
-					</Link>
-					<Link href={"/"}>
-						<li>Blog</li>
-					</Link> */}
-					<ul>
-						{links.map((link, index) => (
-							<li key={index}>
-								<Link href={link.href}>{link.name}</Link>
-							</li>
-						))}
-					</ul>
+					{links.map((link, index) => (
+						<li key={index}>
+							<Link href={link.href}>{link.name}</Link>
+						</li>
+					))}
 				</ul>
 			</div>
 		</motion.nav>

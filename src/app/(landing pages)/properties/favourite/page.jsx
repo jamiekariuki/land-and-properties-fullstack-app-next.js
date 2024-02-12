@@ -1,21 +1,19 @@
-import GalleryTagOne from "@/components/gallery pages/gallery tag one/gallery.tag.one";
-import Cta from "@/components/landing pages/cta/cta";
+import FavouriteProperties from "@/components/properties pages/favourite properties/favourite.properties";
 import PageHero from "@/components/styled components/page hero/page.hero";
 import React from "react";
 
-const AboutPage = () => {
+const FavouritePage = () => {
 	return (
 		<div>
 			<PageHero
-				title={"Gallery"}
+				title={"Favourite"}
 				image={
 					"https://i.postimg.cc/15ZCJ1c2/aerial-overhead-shot-seashore-with-pure-turquoise-water-lodges-during-daytime.jpg"
 				}
 			/>
-			<GalleryTagOne />
-			<Cta />
+			<FavouriteProperties />
 		</div>
 	);
 };
 
-export default AboutPage;
+export default FavouritePage;

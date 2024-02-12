@@ -2,8 +2,7 @@
 import React from "react";
 import "./back.scss";
 import { useRouter } from "next/navigation";
-import { IconButton } from "@mui/material";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { BiArrowBack } from "react-icons/bi";
 import Link from "next/link";
 
 const Back = ({ text, home }) => {
@@ -11,13 +10,10 @@ const Back = ({ text, home }) => {
 
 	return (
 		<div className="back">
-			<IconButton
-				aria-label="go back"
-				size="small"
+			<BiArrowBack
+				className="ut-back-icon"
 				onClick={() => router.back()}
-			>
-				<KeyboardBackspaceIcon className="ut-back-icon" />
-			</IconButton>
+			/>
 
 			<p onClick={() => router.back()}>{text}</p>
 

@@ -8,13 +8,10 @@ const GalleryTagOne = () => {
 	return (
 		<div className="gallery-tag-one">
 			<div className="gallery-1">
-				<h3>Quasi fugiat quis ipsum</h3>
+				<h3>Explore Our Gallery</h3>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Quia, vero, corporis similique perspiciatis adipisci
-					consequuntur quasi fugiat fugit pariatur, quis ipsum
-					quibusdam unde ratione magni sint magnam velit sed
-					dignissimos?
+					Step into our world and glimpse the essence of Peculiarmarc
+					Ventures Limited through captivating imagery
 				</p>
 			</div>
 			<div className="gallery">

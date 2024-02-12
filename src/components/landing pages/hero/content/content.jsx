@@ -20,31 +20,3 @@ const Content = () => {
 };
 
 export default Content;
-
-/* const Content = () => {
-	var settings = {
-		dots: false,
-		arrows: false,
-		infinite: true,
-		speed: 800,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		initialSlide: 0,
-		autoplay: true,
-		autoplaySpeed: 4000,
-		pauseOnHover: false,
-		fade: true,
-	};
-
-	return (
-		<div className="hero-container">
-			<CardSlider settings={settings}>
-				{sliderData.map((item, index) => (
-					<div key={index}>{item.info}</div>
-				))}
-			</CardSlider>
-		</div>
-	);
-};
-
-export default Content; */

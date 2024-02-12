@@ -15,9 +15,11 @@ export const CardSlider = ({ children, settings, wrapper }) => {
 	var allSettings = { ...settings, ...arrows };
 
 	return (
-		<Slider {...allSettings} className={wrapper && "slider-wrapper"}>
-			{children}
-		</Slider>
+		<div className="slider-container">
+			<Slider {...allSettings} className={wrapper && "slider-wrapper"}>
+				{children}
+			</Slider>
+		</div>
 	);
 };
 

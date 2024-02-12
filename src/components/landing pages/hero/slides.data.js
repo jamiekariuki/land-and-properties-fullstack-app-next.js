@@ -35,7 +35,7 @@ export const sliderData = [
 					Unlock Possibilities! Discover prime plots for sale in
 					Kenya. Your canvas for dreams and investments starts here.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -59,7 +59,7 @@ export const sliderData = [
 					possibilities, where each plot holds the promise of a unique
 					journey waiting to unfold.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button>
 					<h5>View More</h5>
 				</motion.button>
@@ -76,14 +76,14 @@ export const sliderData = [
 				whileInView="animate"
 			>
 				<motion.h1 variants={variants}>
-					Discover Your Haven: Exclusive Land
+					Discover Your Haven: Exclusive Land.
 				</motion.h1>
 				<motion.p variants={variants}>
 					Discover the exclusivity of our land offerings, providing
 					you with a haven that goes beyond mere property, offering an
 					experience that resonates with your aspirations.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -107,7 +107,7 @@ export const sliderData = [
 					plots that go beyond mere spaces they are canvases ready to
 					transform your dreams into reality.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -124,7 +124,6 @@ export const sliderData = [
 				whileInView="animate"
 			>
 				<motion.h1 variants={variants}>
-					{" "}
 					Find the perfect plot.
 				</motion.h1>
 				<motion.p variants={variants}>
@@ -132,7 +131,7 @@ export const sliderData = [
 					opportunity, patiently waiting for you to discover its
 					hidden beauty and potential.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -156,7 +155,7 @@ export const sliderData = [
 					exclusive land offerings, where you get to choose not just a
 					property but a piece of the natural world.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -180,7 +179,7 @@ export const sliderData = [
 					your plot becomes the starting point for a future that
 					breaks free from conventional boundaries.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>
@@ -197,14 +196,14 @@ export const sliderData = [
 				whileInView="animate"
 			>
 				<motion.h1 variants={variants}>
-					Exclusive land is here, find your place today.
+					Exclusive land is here.
 				</motion.h1>
 				<motion.p variants={variants}>
 					Your story begins on plots crafted uniquely for you a
 					narrative that unfolds amidst nature's grandeur and the
 					promise of a tailored living experience.
 				</motion.p>
-				<motion.h5 variants={variants}> Malindi </motion.h5>
+
 				<motion.button variants={variants}>
 					<h5>View More</h5>
 				</motion.button>

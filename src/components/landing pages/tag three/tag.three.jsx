@@ -1,22 +1,25 @@
 import React from "react";
 import "./tag.three.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const TagThree = () => {
 	return (
 		<div className="tag-3">
 			<div className="tag-3-info">
 				<div className="tag-3-container">
-					<h1>Lorem ipsum dolor sit </h1>
+					<h1>Navigating Your Real Estate Journey </h1>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Quam, id dolor aut nam sint officia! Culpa nisi ratione,
-						quisquam, sunt reiciendis ea voluptas ut, aperiam
-						voluptatem pariatur itaque ullam esse?
+						We're driven by excellence, delivering unmatched service
+						and expertise in real estate. Upholding ethics,
+						fostering relationships, we aim for utmost satisfaction.
 					</p>
-					<button>
-						<p>See More</p>
-					</button>
+
+					<Link href={"/about-us"}>
+						<button>
+							<p>See More</p>
+						</button>
+					</Link>
 				</div>
 			</div>
 			<Image

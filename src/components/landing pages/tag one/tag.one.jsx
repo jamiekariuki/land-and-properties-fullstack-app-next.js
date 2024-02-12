@@ -21,15 +21,17 @@ const TagOne = () => {
 				<div className="split-right">
 					<div className="right-l">
 						<h6>
-							Lorem ipsum dolor sit amet consectetur adipisicing
+							Discover Endless Possibilities with Peculiarmarc
+							Ventures Limited
 						</h6>
-						<h3>Possimus quos molestias totam,</h3>
+						<h3>Land Opportunities Await</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Beatae ut accusantium nulla cumque doloribus
-							dignissimos. Possimus quos molestias totam,
-							voluptatibus atque nisi eveniet, at dignissimos
-							impedit nobis, maxime corporis. Explicabo.
+							Explore endless possibilities with Peculiarmarc
+							Ventures Limited in Kenya. Our passion for land
+							knows no bounds. From affordable plots to
+							trustworthy deals, we specialize in unlocking cheap
+							and affordable land opportunities. Discover your
+							next investment with us today.
 						</p>
 					</div>
 				</div>
