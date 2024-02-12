@@ -3,6 +3,7 @@ import React from "react";
 import "./tag.one.scss";
 import SplitLayout from "@/components/styled components/containers/split layout/split.layout";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const variants = {
 	initial: {
