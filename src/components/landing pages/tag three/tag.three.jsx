@@ -3,6 +3,7 @@ import React from "react";
 import "./tag.three.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const variants = {
 	initial: {
