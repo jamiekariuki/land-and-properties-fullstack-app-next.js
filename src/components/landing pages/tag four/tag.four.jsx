@@ -1,6 +1,23 @@
+"use client";
 import DoubleSPlit from "@/components/styled components/containers/double split/double.split";
 import Link from "next/link";
 import React from "react";
+
+const variants = {
+	initial: {
+		opacity: 0,
+		x: -6,
+	},
+	animate: {
+		opacity: 1,
+		x: 0,
+
+		transition: {
+			duration: 0.5,
+			staggerChildren: 0.4,
+		},
+	},
+};
 
 const TagFour = () => {
 	return (
@@ -10,9 +27,15 @@ const TagFour = () => {
 					"https://i.postimg.cc/4xnF1brw/Whats-App-Image-2024-02-02-at-20-56-26.jpg"
 				}
 				content={
-					<>
-						<h3>Our Strategic Approach</h3>
-						<p>
+					<motion.div
+						variants={variants}
+						initial="initial"
+						whileInView="animate"
+					>
+						<motion.h3 variants={variants}>
+							Our Strategic Approach
+						</motion.h3>
+						<motion.p variants={variants}>
 							Explore our distinctive methodology, built on strong
 							networks and valued partnerships with government
 							ministries, competent lawyers, and leading financial
@@ -22,16 +45,16 @@ const TagFour = () => {
 							clients, driving the growth of Peculiarmarc Ventures
 							Limited. Click to delve deeper into how our approach
 							sets us apart
-						</p>
+						</motion.p>
 
 						<div>
 							<Link href={"./about-us"}>
-								<button>
+								<motion.button variants={variants}>
 									<p>Read More</p>
-								</button>
+								</motion.button>
 							</Link>
 						</div>
-					</>
+					</motion.div>
 				}
 				flexReverse={true}
 			/>

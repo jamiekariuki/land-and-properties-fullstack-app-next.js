@@ -67,19 +67,6 @@
 					height: 200px;
 				}
 
-				/* .icon-backdrop {
-                        height: 100px;
-                        width: 100px;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        z-index: 3;
-                        border-radius: 50%;
-                        filter: blur(60px);
-                        background-color: $main;
-                    } */
-
 				.tag-2-container {
 					position: absolute;
 					display: flex;
@@ -90,13 +77,18 @@
 					padding: 10px;
 					z-index: 5;
 
+					h3,
+					p {
+						text-align: center;
+					}
+
 					.icon-container {
 						width: 100%;
 						display: flex;
 						justify-content: center;
 
 						.tag-2-icon {
-							font-size: 26px;
+							font-size: 24px;
 							z-index: 5;
 							color: $secondary;
 						}
@@ -104,7 +96,7 @@
 
 					h3 {
 						color: $secondary;
-						font-size: clamp(24px, 3vw, 32px);
+						font-size: clamp(24px, 3vw, 29px);
 					}
 				}
 			}

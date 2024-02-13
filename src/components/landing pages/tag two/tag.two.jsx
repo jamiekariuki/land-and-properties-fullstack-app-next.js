@@ -40,7 +40,7 @@ const variants = {
 
 		transition: {
 			duration: 0.5,
-			staggerChildren: 0.3,
+			staggerChildren: 0.4,
 		},
 	},
 };
@@ -48,14 +48,14 @@ const variants = {
 const variants2 = {
 	initial: {
 		opacity: 0,
-		y: 5,
+		y: 6,
 	},
 	animate: {
 		opacity: 1,
 		y: 0,
 
 		transition: {
-			duration: 0.4,
+			duration: 0.5,
 			staggerChildren: 0.3,
 		},
 	},
