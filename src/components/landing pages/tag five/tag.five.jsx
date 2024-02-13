@@ -18,15 +18,22 @@ const TagFive = () => {
 				<div className="t5-right">
 					<div className="count-cont">
 						{/* <h3>120 +</h3> */}
-						<div className="content" />
-						<VisibilitySensor
-							partialVisibility
-							offset={{ bottom: 200 }}
-						>
+						<VisibilitySensor>
 							{({ isVisible }) => (
-								<h6>
-									{isVisible ? <CountUp end={120} /> : null}
-								</h6>
+								<CountUp
+									start={0}
+									end={120}
+									duration={2}
+									redraw={true}
+									decimals={0}
+									prefix=""
+									suffix="+"
+									delay={0}
+								>
+									{({ countUpRef }) => (
+										<h3 ref={countUpRef}></h3>
+									)}
+								</CountUp>
 							)}
 						</VisibilitySensor>
 						<p>Transformed landscapes for delighted homeowners</p>
