@@ -54,11 +54,13 @@ const TagFive = () => {
 				initial="initial"
 				whileInView="animate"
 			>
-				<motion.div className="t5-left" variants={variants2}>
-					<h3>Our Real Estate Influence</h3>
-				</motion.div>
+				<div className="t5-left">
+					<motion.h3 variants={variants}>
+						Our Real Estate Influence
+					</motion.h3>
+				</div>
 				<div className="t5-right">
-					<motion.div className="count-cont" variants={variants2}>
+					<motion.div className="count-cont" variants={variants}>
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
@@ -124,9 +126,9 @@ const TagFive = () => {
 				</div>
 			</motion.div>
 
-			<div className="tag-5-t">
-				<motion.h3 variants={variants2}>Popular Properties</motion.h3>
-			</div>
+			<motion.div className="tag-5-t" variants={variants2}>
+				<h3>Popular Properties</h3>
+			</motion.div>
 
 			<div className="tag-5-images">
 				{PropertiesData.slice(0, 3).map((data, index) => (
