@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./tag.two.scss";
 import { BsBuildings } from "react-icons/bs";
@@ -5,6 +6,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import { BsBarChart } from "react-icons/bs";
 import { BsClipboardCheck } from "react-icons/bs";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const list = [
 	{
@@ -29,35 +31,81 @@ const list = [
 	},
 ];
 
+const variants = {
+	initial: {
+		opacity: 0,
+	},
+	animate: {
+		opacity: 1,
+
+		transition: {
+			duration: 0.5,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const variants2 = {
+	initial: {
+		opacity: 0,
+		y: 5,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+
+		transition: {
+			duration: 0.4,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
 const TagTwo = () => {
 	return (
 		<div className="tag-two">
-			<div className="tag-2-info">
+			<motion.div
+				className="tag-2-info"
+				variants={variants}
+				initial="initial"
+				whileInView="animate"
+			>
 				<div className="tag-2-c">
-					<h6>Get to Know Us</h6>
-					<h3>Discover the Heart of Our Company</h3>
+					<motion.h6 variants={variants}> Get to Know Us</motion.h6>
+					<motion.h3 variants={variants}>
+						Discover the Heart of Our Company
+					</motion.h3>
 				</div>
 
 				<div className="tag-2-c">
 					<Link href={"/about-us"}>
-						<button>
+						<motion.button variants={variants}>
 							<p>Read More</p>
-						</button>
+						</motion.button>
 					</Link>
 				</div>
-			</div>
+			</motion.div>
 
-			<div className="tag-2">
+			<motion.div
+				className="tag-2"
+				variants={variants2}
+				initial="initial"
+				whileInView="animate"
+			>
 				{list.map((item, index) => (
-					<div className="tag-2-box-container" key={index}>
+					<motion.div
+						className="tag-2-box-container"
+						key={index}
+						variants={variants2}
+					>
 						<div className="tag-2-container">
 							<div className="icon-container">{item.icon}</div>
 							<h3>{item.title}</h3>
 							<p>{item.paragraph}</p>
 						</div>
-					</div>
+					</motion.div>
 				))}
-			</div>
+			</motion.div>
 		</div>
 	);
 };
