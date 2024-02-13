@@ -23,7 +23,7 @@ const TagFive = () => {
 								<CountUp
 									start={0}
 									end={120}
-									duration={2}
+									duration={7}
 									redraw={true}
 									decimals={0}
 									prefix=""
@@ -39,11 +39,45 @@ const TagFive = () => {
 						<p>Transformed landscapes for delighted homeowners</p>
 					</div>
 					<div className="count-cont">
-						<h3> 96%</h3>
+						<VisibilitySensor>
+							{({ isVisible }) => (
+								<CountUp
+									start={0}
+									end={96}
+									duration={7}
+									redraw={true}
+									decimals={0}
+									prefix=""
+									suffix="%"
+									delay={0}
+								>
+									{({ countUpRef }) => (
+										<h3 ref={countUpRef}></h3>
+									)}
+								</CountUp>
+							)}
+						</VisibilitySensor>
 						<p>Homebuyers who found their dream property with us</p>
 					</div>
 					<div className="count-cont">
-						<h3>100 +</h3>
+						<VisibilitySensor>
+							{({ isVisible }) => (
+								<CountUp
+									start={0}
+									end={100}
+									duration={7}
+									redraw={true}
+									decimals={0}
+									prefix=""
+									suffix="+"
+									delay={0}
+								>
+									{({ countUpRef }) => (
+										<h3 ref={countUpRef}></h3>
+									)}
+								</CountUp>
+							)}
+						</VisibilitySensor>
 						<p>Properties sold to satisfied clients and counting</p>
 					</div>
 				</div>
