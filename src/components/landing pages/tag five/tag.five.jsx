@@ -18,6 +18,7 @@ const TagFive = () => {
 				<div className="t5-right">
 					<div className="count-cont">
 						{/* <h3>120 +</h3> */}
+						<div className="content" />
 						<VisibilitySensor
 							partialVisibility
 							offset={{ bottom: 200 }}
