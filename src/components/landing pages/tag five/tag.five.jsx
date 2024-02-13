@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
 import "./tag.five.scss";
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
 import { PropertiesData } from "@/components/properties pages/properties/property";
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 
 const TagFive = () => {
 	return (
@@ -13,7 +17,17 @@ const TagFive = () => {
 				</div>
 				<div className="t5-right">
 					<div className="count-cont">
-						<h3>120 +</h3>
+						{/* <h3>120 +</h3> */}
+						<VisibilitySensor
+							partialVisibility
+							offset={{ bottom: 200 }}
+						>
+							{({ isVisible }) => (
+								<h6>
+									{isVisible ? <CountUp end={120} /> : null}
+								</h6>
+							)}
+						</VisibilitySensor>
 						<p>Transformed landscapes for delighted homeowners</p>
 					</div>
 					<div className="count-cont">
