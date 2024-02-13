@@ -1,25 +1,50 @@
+"use client";
 import React from "react";
 import "./cta.scss";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const variants = {
+	initial: {
+		opacity: 0,
+		y: 6,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+
+		transition: {
+			duration: 0.5,
+			staggerChildren: 0.4,
+		},
+	},
+};
 
 const Cta = () => {
 	return (
 		<div className="cta">
-			<div className="cta-info">
-				<h3>Uncover Property Opportunities</h3>
-				<p>
+			<motion.div
+				className="cta-info"
+				variants={variants}
+				initial="initial"
+				whileInView="animate"
+			>
+				<motion.h3 variants={variants}>
+					Uncover Property Opportunities
+				</motion.h3>
+				<motion.p variants={variants}>
 					Explore our extensive selection of land options, ranging
 					from residential to commercial. Find the perfect plot to
 					suit your needs and aspirations
-				</p>
+				</motion.p>
 				<div>
 					<Link href={"/properties"}>
-						<button>
+						<motion.button variants={variants}>
 							<p>See Properties</p>
-						</button>
+						</motion.button>
 					</Link>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 };
