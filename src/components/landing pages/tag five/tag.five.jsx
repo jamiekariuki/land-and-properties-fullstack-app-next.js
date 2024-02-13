@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import "./tag.five.scss";
 import Image from "next/image";
@@ -7,28 +6,72 @@ import { BsArrowRight } from "react-icons/bs";
 import { PropertiesData } from "@/components/properties pages/properties/property";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
+import { motion } from "framer-motion";
+
+const variants = {
+	initial: {
+		opacity: 0,
+		y: 6,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+
+		transition: {
+			duration: 0.5,
+			staggerChildren: 0.5,
+		},
+	},
+};
+
+const variants2 = {
+	initial: {
+		opacity: 0,
+		y: -6,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+
+		transition: {
+			duration: 0.5,
+			staggerChildren: 0.4,
+		},
+	},
+};
 
 const TagFive = () => {
 	return (
-		<div className="tag-5">
-			<div className="tag-5-info">
+		<motion.div
+			className="tag-5"
+			variants={variants2}
+			initial="initial"
+			whileInView="animate"
+		>
+			<motion.div
+				className="tag-5-info"
+				variants={variants}
+				initial="initial"
+				whileInView="animate"
+			>
 				<div className="t5-left">
-					<h3>Our Real Estate Influence</h3>
+					<motion.h3 variants={variants}>
+						Our Real Estate Influence
+					</motion.h3>
 				</div>
 				<div className="t5-right">
-					<div className="count-cont">
-						{/* <h3>120 +</h3> */}
+					<motion.div className="count-cont" variants={variants}>
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={0}
+									start={60}
 									end={120}
 									duration={7}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="+"
-									delay={0}
+									delay={1}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
@@ -37,19 +80,19 @@ const TagFive = () => {
 							)}
 						</VisibilitySensor>
 						<p>Transformed landscapes for delighted homeowners</p>
-					</div>
-					<div className="count-cont">
+					</motion.div>
+					<motion.div className="count-cont" variants={variants}>
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={0}
+									start={40}
 									end={96}
 									duration={7}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="%"
-									delay={0}
+									delay={1}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
@@ -58,19 +101,19 @@ const TagFive = () => {
 							)}
 						</VisibilitySensor>
 						<p>Homebuyers who found their dream property with us</p>
-					</div>
-					<div className="count-cont">
+					</motion.div>
+					<motion.div className="count-cont" variants={variants}>
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={0}
+									start={50}
 									end={100}
 									duration={7}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="+"
-									delay={0}
+									delay={1}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
@@ -79,17 +122,21 @@ const TagFive = () => {
 							)}
 						</VisibilitySensor>
 						<p>Properties sold to satisfied clients and counting</p>
-					</div>
+					</motion.div>
 				</div>
-			</div>
+			</motion.div>
 
 			<div className="tag-5-t">
-				<h3>Popular Properties</h3>
+				<motion.h3 variants={variants2}>Popular Properties</motion.h3>
 			</div>
 
 			<div className="tag-5-images">
 				{PropertiesData.slice(0, 3).map((data, index) => (
-					<div key={index} className="tag-5-card-container">
+					<motion.div
+						key={index}
+						className="tag-5-card-container"
+						variants={variants2}
+					>
 						<Image
 							src={data.picture[0]}
 							alt="property photo"
@@ -120,10 +167,10 @@ const TagFive = () => {
 								</div>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 				))}
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
