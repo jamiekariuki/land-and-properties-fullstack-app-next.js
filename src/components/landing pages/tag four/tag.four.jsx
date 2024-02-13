@@ -2,6 +2,7 @@
 import DoubleSPlit from "@/components/styled components/containers/double split/double.split";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const variants = {
 	initial: {
