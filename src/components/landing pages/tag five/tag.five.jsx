@@ -54,24 +54,22 @@ const TagFive = () => {
 				initial="initial"
 				whileInView="animate"
 			>
-				<div className="t5-left">
-					<motion.h3 variants={variants}>
-						Our Real Estate Influence
-					</motion.h3>
-				</div>
+				<motion.div className="t5-left" variants={variants2}>
+					<h3>Our Real Estate Influence</h3>
+				</motion.div>
 				<div className="t5-right">
-					<motion.div className="count-cont" variants={variants}>
+					<motion.div className="count-cont" variants={variants2}>
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={60}
+									start={80}
 									end={120}
-									duration={7}
+									duration={6}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="+"
-									delay={1}
+									delay={0.5}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
@@ -85,14 +83,14 @@ const TagFive = () => {
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={40}
+									start={60}
 									end={96}
-									duration={7}
+									duration={6}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="%"
-									delay={1}
+									delay={0.5}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
@@ -106,14 +104,14 @@ const TagFive = () => {
 						<VisibilitySensor>
 							{({ isVisible }) => (
 								<CountUp
-									start={50}
+									start={70}
 									end={100}
-									duration={7}
+									duration={6}
 									redraw={true}
 									decimals={0}
 									prefix=""
 									suffix="+"
-									delay={1}
+									delay={0.5}
 								>
 									{({ countUpRef }) => (
 										<h3 ref={countUpRef}></h3>
