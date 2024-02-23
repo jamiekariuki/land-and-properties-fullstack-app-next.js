@@ -51,6 +51,14 @@
 					}
 				}
 
+				form {
+					display: flex;
+					flex-direction: column;
+					gap: 30px;
+					width: 100%;
+					max-width: 400px;
+				}
+
 				.auth-form-container {
 					display: flex;
 					flex-direction: column;
@@ -101,6 +109,11 @@
 					border: 0;
 					cursor: pointer;
 					//border-radius: 6px;
+
+					&:disabled {
+						background-color: $secondaryDisabled;
+						cursor: not-allowed;
+					}
 
 					p {
 						color: white;

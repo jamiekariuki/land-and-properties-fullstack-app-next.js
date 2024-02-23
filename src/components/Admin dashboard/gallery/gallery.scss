@@ -1,0 +1,113 @@
+@import "./../../../theme/theme.scss";
+
+.d-gallery {
+	@include themify($themes) {
+		width: 100%;
+
+		.d-gallery-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			h6 {
+				color: white;
+				text-transform: lowercase;
+			}
+		}
+
+		.d-gallery-container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+
+			.ap-prop {
+				margin: 20px;
+				height: auto;
+				width: 100%;
+				display: grid;
+				grid-auto-rows: minmax(300px, auto);
+				grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+				gap: 20px 20px;
+				justify-content: flex-start;
+				align-content: flex-start;
+
+				@media (max-width: 450px) {
+					grid-template-columns: repeat(
+						auto-fit,
+						minmax(100px, 500px)
+					);
+				}
+
+				@media (max-width: 1000px) {
+					justify-content: center;
+				}
+
+				&.ap-prop2 {
+					justify-content: center;
+				}
+
+				.d-gallery-box {
+					width: 100%;
+					height: 100%;
+					position: relative;
+					border-radius: 10px;
+					overflow: hidden;
+
+					.p-edit-backdrop {
+						opacity: 0;
+						position: absolute;
+						inset: 0;
+						background-color: rgba(0, 0, 0, 0.76);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						transition: 0.3s;
+						z-index: 5;
+
+						.delete-pi {
+							font-size: 20px;
+							color: rgb(206, 51, 51);
+							cursor: pointer;
+						}
+					}
+
+					&:hover {
+						.p-edit-backdrop {
+							opacity: 1;
+						}
+					}
+
+					.d-gallery-image {
+						object-fit: cover;
+					}
+				}
+
+				.d-gallery-box-add {
+					border: 1px dashed themed("border");
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+
+					.tb-add {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						gap: 5px;
+
+						h4 {
+							font-size: 15px;
+							color: themed("border");
+						}
+
+						.tb-add {
+							color: themed(border);
+							font-size: 30px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

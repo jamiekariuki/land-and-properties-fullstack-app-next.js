@@ -1,5 +1,7 @@
 @import "./../../../theme/theme.scss";
 
+$inputFont: 15px;
+
 .inputs {
 	@include themify($themes) {
 		width: 100%;
@@ -63,13 +65,13 @@
 		}
 
 		.input-error {
-			font-size: 11px;
+			font-size: 12px;
 			position: absolute;
 			background-color: themed("background");
 			top: 83%;
 			left: 3%;
 			padding: 0 3px;
-			color: rgba(255, 0, 0, 0.937);
+			color: rgba(255, 0, 0, 0.98);
 			line-height: 1;
 		}
 
@@ -80,10 +82,10 @@
 			border: 1px solid themed("border");
 			outline: none;
 			padding: 3px 7px;
-			//border-radius: 5px;
 			color: themed("titleColor");
 			transition: 0.3s ease;
 			font-family: var(--font-cormorant);
+			font-size: $inputFont;
 
 			&:hover {
 				border: 1px solid themed("titleColor");
@@ -110,6 +112,7 @@
 			transition: 0.3s ease;
 			font-family: var(--font-cormorant);
 			cursor: pointer;
+			font-size: $inputFont;
 
 			&:hover {
 				border: 1px solid themed("titleColor");

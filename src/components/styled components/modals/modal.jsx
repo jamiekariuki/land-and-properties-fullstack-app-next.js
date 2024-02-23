@@ -1,7 +1,7 @@
 "use client";
 import "./modal.scss";
 import PropTypes from "prop-types";
-import CloseIcon from "@mui/icons-material/Close";
+import { MdClose } from "react-icons/md";
 import IconButton from "@mui/material/IconButton";
 import ReactDOM from "react-dom";
 
@@ -18,7 +18,7 @@ const Modal = ({ open, onClose, children, title }) => {
 						className="close-button"
 						onClick={onClose}
 					>
-						<CloseIcon fontSize="inherit" />
+						<MdClose fontSize="inherit" />
 					</IconButton>
 
 					{title && (

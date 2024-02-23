@@ -94,7 +94,6 @@ const Inputs = ({
 //------------------------------------
 
 const Inputs2 = ({
-	changeValue,
 	value,
 	id,
 	disabled,
@@ -104,6 +103,10 @@ const Inputs2 = ({
 	node,
 	softBg,
 	bg,
+	borderRadius,
+	//useform props
+	register,
+	name,
 }) => {
 	return (
 		<div
@@ -115,15 +118,14 @@ const Inputs2 = ({
 				disabled={disabled}
 				value={value}
 				placeholder=" "
-				onChange={(e) => {
-					changeValue(e.target.value);
-				}}
+				{...register(name)}
 				type={type}
 				className="input-field"
 				style={{
 					borderColor: error && "rgba(255, 0, 0, 0.45)",
 					fontSize: node && "12px",
 					backgroundColor: bg ? bg : "",
+					borderRadius: borderRadius ? "5px" : "",
 				}}
 			/>
 			<label
@@ -132,13 +134,14 @@ const Inputs2 = ({
 			>
 				<p
 					style={{
-						color: error && "rgba(255, 0, 0, 0.7)",
+						color: error && "rgba(255, 0, 0, 0.98)",
 						fontSize: node && "12px",
 					}}
 				>
 					{label}
 				</p>
 			</label>
+			{error && <p className="input-error">{error}</p>}
 		</div>
 	);
 };
@@ -153,6 +156,7 @@ const TextArea2 = ({
 	node,
 	error,
 	bg,
+	borderRadius,
 }) => {
 	return (
 		<div className="inputs-ta">
@@ -165,6 +169,7 @@ const TextArea2 = ({
 					height: inputHeight ? inputHeight : "100px",
 					borderColor: error && "rgba(255, 0, 0, 0.45)",
 					backgroundColor: bg ? bg : "",
+					borderRadius: borderRadius ? "5px" : "",
 				}}
 				onChange={(e) => {
 					changeValue(e.target.value);

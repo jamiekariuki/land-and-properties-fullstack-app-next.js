@@ -10,6 +10,7 @@ const SelectOption = ({
 	label,
 	disabled,
 	softBg,
+	borderRadius,
 }) => {
 	return (
 		<div
@@ -26,6 +27,7 @@ const SelectOption = ({
 				className="input-field"
 				style={{
 					fontSize: node && "11px",
+					borderRadius: borderRadius ? "5px" : "",
 				}}
 			>
 				<option value="" disabled hidden>
