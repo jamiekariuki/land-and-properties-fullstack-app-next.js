@@ -3,8 +3,12 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import "./delete.all.user.scss";
 import Modal from "@/components/styled components/modals/modal";
+import { deleteAllUser } from "@/lib/actions/users";
 
 const DeleteAllUser = ({ open, onClose }) => {
+	const deleteAll = () => {
+		deleteAllUser();
+	};
 	return (
 		<Modal open={open} onClose={onClose}>
 			<div className="user-delete">
@@ -20,9 +24,11 @@ const DeleteAllUser = ({ open, onClose }) => {
 					</Alert>
 				</div>
 				<div className="delete-button-container">
-					<button onClick={onClose}>
-						<p>Proceed</p>
-					</button>
+					<form action={deleteAll}>
+						<button onClick={onClose}>
+							<p>Proceed</p>
+						</button>
+					</form>
 					<button onClick={onClose} className="decline-button">
 						<p>Decline</p>
 					</button>

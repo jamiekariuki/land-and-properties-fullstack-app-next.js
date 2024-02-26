@@ -1,3 +1,4 @@
+import { connectToDB } from "../db.connect";
 import { Gallery } from "../models/gallery";
 
 //get gallery

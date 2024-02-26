@@ -3,178 +3,193 @@ import {
 	Inputs2,
 	TextArea2,
 } from "@/components/styled components/inputs/inputs";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./edit.property.scss";
 import EditPropertyImages from "./property images/property.images";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PropertySchema } from "@/utils/validators/property.schema";
+import { useToast } from "@/context/toastContext";
+import { updateProperty } from "@/lib/actions/properties";
+import { useRouter } from "next/navigation";
 
 const EditProperty = ({ item }) => {
+	const { showToast } = useToast();
+	const [error, setError] = useState("");
+	const [picture, setPicture] = useState(item.picture);
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState("");
+
+	const {
+		control,
+		handleSubmit,
+		register,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(PropertySchema),
+		defaultValues: item,
+	});
+	const router = useRouter();
+	useEffect(() => {
+		if (success !== "") {
+			showToast(success, "success");
+			//redirect here
+			//	const router = useRouter();
+			router.push("/dashboard/properties", { scroll: false });
+		} else if (error !== "") {
+			showToast(error, "error");
+		}
+		setError("");
+		setSuccess("");
+	}, [success, error]);
+
+	const onSubmit = (data) => {
+		setSubmiting(true);
+		//server action
+		data.picture = picture;
+		updateProperty(item._id, data).then((data) => {
+			setError(data?.error);
+			setSuccess(data?.success);
+			setSubmiting(false);
+		});
+	};
+
 	return (
 		<div className="edit-property-c">
-			<div className="edit-p-cont">
+			<form className="edit-p-cont" onSubmit={handleSubmit(onSubmit)}>
 				<h1>Edit Property</h1>
 				<div className="edit-image-container">
 					<h6>Add Property Images</h6>
-					<EditPropertyImages picture={item.picture} />
+					<EditPropertyImages
+						picture={picture}
+						setPicture={setPicture}
+					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Property Title</h6>
 					<Inputs2
-						/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
+						error={errors.title?.message}
+						register={register}
+						name={"title"}
 						type={"text"}
 						label={"Title"}
 						id={"EditProperty-title"}
-						value={item.title}
 						borderRadius={true}
-
-						/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Property Description</h6>
 					<TextArea2
-						/* error={
-							systemPrompt.replace(/\s/g, "").length >=
-							systemPromptLength
-						} */
-
+						error={errors.description?.message}
+						register={register}
+						name={"description"}
+						type={"text"}
 						label={"Enter description..."}
-						id={"EditProperty-desc"}
-						value={item.description}
+						id={"editproperty-desc"}
 						inputHeight={"100px"}
 						borderRadius={true}
-						/* changeValue={(e) => {
-							setSystemPrompt(e);
-						}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Property Location</h6>
 					<Inputs2
-						/* error={
-									formData.Location.replace(/\s/g, "").length >=
-									maxLocationLength
-								} */
+						error={errors.location?.message}
+						register={register}
+						name={"location"}
 						type={"text"}
 						label={"Location"}
-						id={"EditProperty-Location"}
-						value={item.location}
+						id={"editproperty-Location"}
 						borderRadius={true}
-
-						/* changeValue={(e) => {
-									handleChange("Location", e);
-								}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Property Coordinates</h6>
 					<Inputs2
-						/* error={
-									formData.Location.replace(/\s/g, "").length >=
-									maxLocationLength
-								} */
+						error={errors.coordinates?.message}
+						register={register}
+						name={"coordinates"}
 						type={"text"}
 						label={"coordinates. Example 90,45"}
-						id={"EditProperty-cordinates"}
-						value={item.coordinates}
+						id={"editproperty-cordinates"}
 						borderRadius={true}
-
-						/* changeValue={(e) => {
-									handleChange("Location", e);
-								}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Amenities Arround</h6>
 					<TextArea2
-						/* error={
-							systemPrompt.replace(/\s/g, "").length >=
-							systemPromptLength
-						} */
-
+						error={errors.amenities?.message}
+						register={register}
+						name={"amenities"}
 						label={
 							"Enter amenities... example: Beach Access, hiking trails, Mall, Nearby restaurant "
 						}
-						id={"EditProperty-amenities"}
+						id={"addproperty-amenities"}
 						value={""}
 						inputHeight={"100px"}
 						borderRadius={true}
-						/* changeValue={(e) => {
-							setSystemPrompt(e);
-						}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Why this property</h6>
 					<TextArea2
-						/* error={
-							systemPrompt.replace(/\s/g, "").length >=
-							systemPromptLength
-						} */
-
+						error={errors.whyThisProperty?.message}
+						register={register}
+						name={"whyThisProperty"}
 						label={"Enter why visitors should choose this property"}
-						id={"EditProperty-why-this-prop"}
-						value={item.whyThisProperty}
+						id={"editproperty-why-this-prop"}
 						inputHeight={"100px"}
 						borderRadius={true}
-						/* changeValue={(e) => {
-							setSystemPrompt(e);
-						}} */
 					/>
 				</div>
+
+				<Checkbox2
+					control={control}
+					label={"Featured"}
+					name={"featured"}
+				/>
+
+				<Checkbox2
+					control={control}
+					label={"Popular"}
+					name={"populard"}
+				/>
 
 				<div className="edit-property">
 					<h6>Price (ksh)</h6>
 					<Inputs2
-						/* error={
-									formData.Location.replace(/\s/g, "").length >=
-									maxLocationLength
-								} */
+						error={errors.price?.message}
+						register={register}
+						name={"price"}
 						type={"text"}
 						label={"price"}
-						id={"EditProperty-price"}
-						value={item.price}
+						id={"editproperty-price"}
 						borderRadius={true}
-
-						/* changeValue={(e) => {
-									handleChange("Location", e);
-								}} */
 					/>
 				</div>
 
 				<div className="edit-property">
 					<h6>Price quote</h6>
 					<TextArea2
-						/* error={
-							systemPrompt.replace(/\s/g, "").length >=
-							systemPromptLength
-						} */
-
+						error={errors.priceQuote?.message}
+						register={register}
+						name={"priceQuote"}
 						label={"Enter price quote. example: 20% discount"}
-						id={"EditProperty-p-quote"}
-						value={item.priceQuote}
+						id={"editproperty-p-quote"}
 						inputHeight={"50px"}
 						borderRadius={true}
-						/* changeValue={(e) => {
-							setSystemPrompt(e);
-						}} */
 					/>
 				</div>
 
-				<button>
-					<p>Update</p>
+				<button disabled={submiting}>
+					{submiting ? <p>Updating...</p> : <p>Update</p>}
 				</button>
-			</div>
+			</form>
 		</div>
 	);
 };

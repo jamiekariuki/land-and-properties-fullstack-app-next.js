@@ -3,21 +3,25 @@ import React, { useState } from "react";
 import "./gallery.scss";
 import Button from "@mui/material/Button";
 import { IoMdAdd } from "react-icons/io";
-import { PropertiesData } from "@/components/properties pages/properties/property";
 import { BsTrashFill } from "react-icons/bs";
 import AddPhoto from "./add photo/add.photo";
 import Image from "next/image";
+import { deleteGallery } from "@/lib/actions/gallery";
 
-const DashboardGallery = () => {
+const DashboardGallery = ({ pictures }) => {
 	const [open, setOpen] = useState(false);
 	const onClose = () => {
 		setOpen(false);
 	};
+
+	const deleteG = (id) => {
+		deleteGallery(id);
+	};
+
 	return (
 		<div className="d-gallery">
 			<div className="d-gallery-header">
-				<div></div>
-
+				<div />
 				<Button
 					variant="contained"
 					size="small"
@@ -33,19 +37,21 @@ const DashboardGallery = () => {
 			<div className="d-gallery-container">
 				<div
 					className={
-						PropertiesData.length > 2
-							? "ap-prop ap-prop2"
-							: "ap-prop"
+						pictures.length > 2 ? "ap-prop ap-prop2" : "ap-prop"
 					}
 				>
-					{PropertiesData.map((item, index) => (
+					{pictures.map((item, index) => (
 						<div className="d-gallery-box" key={index}>
 							<div className="p-edit-backdrop">
-								<BsTrashFill className="delete-pi" />
+								<form action={() => deleteG(item._id)}>
+									<button>
+										<BsTrashFill className="delete-pi" />
+									</button>
+								</form>
 							</div>
 							<Image
 								alt="gallery image"
-								src={item.picture[0]}
+								src={item.picture}
 								fill={true}
 								className="d-gallery-image"
 								quality={100}
@@ -64,8 +70,7 @@ const DashboardGallery = () => {
 							<h4>add photo</h4>
 						</div>
 					</div>
-
-					<AddPhoto open={open} onClose={onClose} />
+					{open && <AddPhoto open={open} onClose={onClose} />}
 				</div>
 			</div>
 		</div>

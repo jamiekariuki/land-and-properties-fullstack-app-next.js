@@ -1,37 +1,30 @@
 import { PropertiesData } from "@/components/properties pages/properties/property";
 import Image from "next/image";
 import React from "react";
-import { BsFillImageFill } from "react-icons/bs";
 import "./property.images.scss";
+import { FileUploadDropZone } from "@/components/styled components/inputs/fileupload";
 
-const PropertyImages = () => {
+const PropertyImages = ({ picture, setPicture }) => {
 	return (
 		<div className="property-images">
 			<div className="add-pi">
-				<div className="input-upload">
-					<div className="icon-container">
-						<BsFillImageFill className="upload-icon" />
-					</div>
-
-					<p>
-						Drag & Drop or <span>Browse</span> <br /> your Media
-						files
-					</p>
+				<FileUploadDropZone Image={picture} setImage={setPicture} />
+			</div>
+			{picture.length > 0 && (
+				<div className="all-pi">
+					{picture.map((item, index) => (
+						<div className="property-add-cont" key={index}>
+							<Image
+								alt="property image"
+								src={item}
+								fill={true}
+								className="ad-p-image"
+								quality={100}
+							/>
+						</div>
+					))}
 				</div>
-			</div>
-			<div className="all-pi">
-				{/* {PropertiesData.map((item, index) => (
-					<div className="property-add-cont" key={index}>
-						<Image
-							alt="property image"
-							src={item.picture[0]}
-							fill={true}
-							className="ad-p-image"
-							quality={100}
-						/>
-					</div>
-				))} */}
-			</div>
+			)}
 		</div>
 	);
 };

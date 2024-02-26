@@ -3,13 +3,42 @@ import { Property } from "@/lib/models/property";
 import { Wishlist } from "@/lib/models/wishlist";
 
 //get properties
-export const GetAllProperties = async () => {
+export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
 	try {
 		connectToDB();
-		const properties = await Property.find();
+
+		const query = {};
+
+		// Add keyword search if 'q' parameter is provided
+		if (q !== "") {
+			query.$or = [
+				{ title: { $regex: new RegExp(q, "i") } }, // Case-insensitive title search
+				{ description: { $regex: new RegExp(q, "i") } }, // Case-insensitive content search
+			];
+		}
+
+		// Add price range filtering if 'minPrice' or 'maxPrice' parameters are provided
+		if (minPrice !== "" || maxPrice !== "") {
+			query.price = {}; // Initialize price query object
+
+			if (minPrice) {
+				query.price.$gte = minPrice; // Greater than or equal to minPrice
+			}
+
+			if (maxPrice) {
+				query.price.$lte = maxPrice; // Less than or equal to maxPrice
+			}
+		}
+
+		if (location !== "") {
+			query.location = { $regex: new RegExp(location, "i") }; // Case-insensitive location search
+		}
+
+		const properties = await Property.find(query);
+
 		return properties;
 	} catch (err) {
-		//console.log(err);
+		console.log(err);
 		throw new Error("Failed to fetch properties!");
 	}
 };
@@ -17,7 +46,8 @@ export const GetAllProperties = async () => {
 export const GetProperty = async (id) => {
 	try {
 		connectToDB();
-		const property = await Property.findOne({ id });
+		const property = await Property.findById(id);
+
 		return property;
 	} catch (err) {
 		//console.log(err);

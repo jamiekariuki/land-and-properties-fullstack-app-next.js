@@ -10,7 +10,9 @@ export const AuthLogIn = async (data) => {
 		return { error: "Invalid fields!" };
 	}
 
-	const { email, password } = data;
+	return { error: "Invalid fields!" };
+
+	/* const { email, password } = data;
 
 	try {
 		await signIn("credentials", { email, password });
@@ -20,7 +22,7 @@ export const AuthLogIn = async (data) => {
 			return { error: "Invalid credentials" };
 		}
 		throw err;
-	}
+	} */
 };
 
 export const GoogleLogin = async () => {

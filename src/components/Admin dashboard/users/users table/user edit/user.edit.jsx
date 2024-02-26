@@ -1,126 +1,100 @@
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./user.edit.scss";
 import Modal from "@/components/styled components/modals/modal";
-import Image from "next/image";
 import { Inputs2 } from "@/components/styled components/inputs/inputs";
 import SelectOption from "@/components/styled components/inputs/select.option";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useToast } from "@/context/toastContext";
+import { AuthSchema } from "@/utils/validators/authentication/auth.schema";
+import { updateUser } from "@/lib/actions/users";
+import { ImageUpload } from "@/components/styled components/inputs/fileupload";
 
-const UserEdit = ({ open, onClose, profile, username, email, role }) => {
+const UserEdit = ({ open, onClose, user }) => {
 	const isSuperAdmin = true;
 
-	const initialUserData = {
-		profilePicture: "",
-		username: username,
-		email: email,
-		role: role,
-		ipAddress: "192.168.1.1",
-	};
+	const roles = ["user", "admin", "super admin"];
 
-	const [userData, setUserData] = useState(initialUserData);
+	const { showToast } = useToast();
 
-	const handleInputChange = (e) => {
-		const { name, value } = e.target;
-		setUserData({
-			...userData,
-			[name]: value,
+	const [error, setError] = useState("");
+	const [picture, setPicture] = useState("");
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState("");
+
+	const {
+		handleSubmit,
+		register,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(AuthSchema),
+		defaultValues: user,
+	});
+
+	useEffect(() => {
+		if (success !== "") {
+			showToast(success, "success");
+			setPicture("");
+			//redirect here
+		} else if (error !== "") {
+			showToast(error, "error");
+		}
+		setError("");
+		setSuccess("");
+	}, [success, error]);
+
+	const onSubmit = (data) => {
+		setSubmiting(true);
+		//server action
+		data.image = picture;
+		updateUser(user._id, data).then((data) => {
+			setError(data?.error);
+			setSuccess(data?.success);
+			setSubmiting(false);
 		});
 	};
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		/* call api here */
-
-		onClose();
-	};
-
-	const roles = ["user", "admin", "super admin"];
 
 	if (isSuperAdmin) {
 		return (
 			<Modal open={open} onClose={onClose} title={"Edit user"}>
-				<div className="user-edit">
+				<form className="user-edit" onSubmit={handleSubmit(onSubmit)}>
 					<div className="form-group-profile">
-						<label htmlFor="profilePicture">
-							<div className="profile-wrapper-input">
-								<Image
-									className="profile-image-input"
-									src={profile}
-									alt="avatar"
-									fill={true}
-								/>
-								<input
-									type="file"
-									id="profilePicture"
-									name="profilePicture"
-									value={userData.profilePicture}
-									onChange={handleInputChange}
-									hidden
-								/>
-
-								<div className="upload-text">
-									<h6>
-										Upload <br /> Photo
-									</h6>
-								</div>
-							</div>
-						</label>
-					</div>
-
-					<div className="edituser-form">
-						<h6>Name</h6>
-						<Inputs2
-							/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
-							type={"text"}
-							label={"Name"}
-							id={"edituser-name"}
-							value={userData.username}
-							borderRadius={true}
-
-							/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
+						<ImageUpload
+							defaultAvatar={user.image}
+							setImage={setPicture}
 						/>
 					</div>
 
 					<div className="edituser-form">
 						<h6>Email</h6>
 						<Inputs2
-							/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
+							error={errors.email?.message}
+							register={register}
+							name={"email"}
 							type={"text"}
 							label={"Email"}
 							id={"edituser-email"}
-							value={userData.email}
 							borderRadius={true}
-
-							/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
 						/>
 					</div>
 
 					<div className="edituser-form">
 						<p>Role</p>
 						<SelectOption
+							error={errors.role?.message}
+							register={register}
+							name={"role"}
 							label={"Role"}
 							list={roles}
-							value={userData.role}
 							borderRadius={true}
-							/* changeValue={(e) => {
-							setAiLevel(e);
-						}} */
 						/>
 					</div>
 
-					<button type="submit">
-						<p>submit</p>
+					<button disabled={submiting}>
+						{submiting ? <p>Updating...</p> : <p>Update</p>}
 					</button>
-				</div>
+				</form>
 			</Modal>
 		);
 	} else {
@@ -144,103 +118,3 @@ const UserEdit = ({ open, onClose, profile, username, email, role }) => {
 };
 
 export default UserEdit;
-
-{
-	/* <div className="form-group">
-							<label htmlFor="username">
-								<p>Username</p>{" "}
-							</label>
-							<input
-								onKeyDown={(event) => {
-									event.stopPropagation();
-								}}
-								type="text"
-								id="username"
-								name="username"
-								value={userData.username}
-								onChange={handleInputChange}
-								className="text-area"
-							/>
-						</div>
-
-						<div className="form-group">
-							<label htmlFor="email">
-								<p>Email</p>
-							</label>
-							<input
-								onKeyDown={(event) => {
-									event.stopPropagation();
-								}}
-								type="email"
-								id="email"
-								name="email"
-								value={userData.email}
-								onChange={handleInputChange}
-								className="text-area"
-							/>
-						</div>
-
-						<div className="form-group">
-							<label>
-								<p>Role</p>
-							</label>
-							<div className="role-radio">
-								<label className="role-radio-input">
-									<input
-										type="radio"
-										name="role"
-										value="super admin"
-										checked={
-											userData.role === "super admin"
-										}
-										onChange={handleInputChange}
-										className="radio-area"
-									/>
-									<h6>Super admin</h6>
-								</label>
-								<label className="role-radio-input">
-									<input
-										type="radio"
-										name="role"
-										value="admin"
-										checked={userData.role === "admin"}
-										onChange={handleInputChange}
-										className="radio-area"
-									/>
-
-									<h6>Admin</h6>
-								</label>
-								<label className="role-radio-input">
-									<input
-										type="radio"
-										name="role"
-										value="user"
-										checked={userData.role === "user"}
-										onChange={handleInputChange}
-										className="radio-area"
-									/>
-									<h6>User</h6>
-								</label>
-							</div>
-						</div>
-						<div className="form-group">
-							<label htmlFor="ipAddress">
-								<p>IP Address</p>
-							</label>
-							<input
-								onKeyDown={(event) => {
-									event.stopPropagation();
-								}}
-								type="text"
-								id="ipAddress"
-								name="ipAddress"
-								value={userData.ipAddress}
-								onChange={handleInputChange}
-								className="text-area"
-							/>
-						</div>
-						<button type="submit">
-							{" "}
-							<p>submit</p>{" "}
-						</button> */
-}

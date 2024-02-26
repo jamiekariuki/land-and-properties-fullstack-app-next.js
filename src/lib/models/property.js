@@ -20,13 +20,12 @@ const propertySchema = new mongoose.Schema(
 			required: true,
 		},
 		picture: {
-			type: [String], // Array of strings (picture URLs)
+			type: [String],
 			required: true,
 		},
 
 		price: {
 			type: String,
-			required: true,
 		},
 		priceQuote: {
 			type: String,

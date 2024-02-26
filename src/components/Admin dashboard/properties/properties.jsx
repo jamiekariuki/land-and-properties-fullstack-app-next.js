@@ -5,10 +5,10 @@ import Search from "@/components/styled components/inputs/search";
 import Button from "@mui/material/Button";
 import { IoMdAdd } from "react-icons/io";
 import DashboardPropertyCard from "./property card/property.card";
-import { PropertiesData } from "@/components/properties pages/properties/property";
+//import { PropertiesData } from "@/components/properties pages/properties/property";
 import Link from "next/link";
 
-const AdminProperties = () => {
+const AdminProperties = ({ properties }) => {
 	return (
 		<div className="a-properties">
 			<div className="ap-header">
@@ -28,12 +28,10 @@ const AdminProperties = () => {
 			<div className="property-container">
 				<div
 					className={
-						PropertiesData.length > 2
-							? "ap-prop ap-prop2"
-							: "ap-prop"
+						properties.length > 2 ? "ap-prop ap-prop2" : "ap-prop"
 					}
 				>
-					{PropertiesData.map((item, index) => (
+					{properties.map((item, index) => (
 						<div className="property-box" key={index}>
 							<DashboardPropertyCard item={item} />
 						</div>

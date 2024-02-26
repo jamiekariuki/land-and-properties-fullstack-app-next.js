@@ -64,10 +64,17 @@
 						transition: 0.3s;
 						z-index: 5;
 
-						.delete-pi {
-							font-size: 20px;
-							color: rgb(206, 51, 51);
-							cursor: pointer;
+						form {
+							button {
+								border: 0;
+								background-color: transparent;
+
+								.delete-pi {
+									font-size: 20px;
+									color: rgb(206, 51, 51);
+									cursor: pointer;
+								}
+							}
 						}
 					}
 

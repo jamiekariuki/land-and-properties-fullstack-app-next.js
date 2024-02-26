@@ -24,7 +24,7 @@ export const NavigationLinks = [
 		text: "properties",
 		link: "/dashboard/properties",
 	},
-	{
+	/* {
 		icon: <BsChatLeftTextFill className="nav-icons" />,
 		text: "Inbox",
 		link: "/dashboard/inbox",
@@ -39,10 +39,10 @@ export const NavigationLinks = [
 		text: "blog",
 		link: "/dashboard/blog",
 	},
-
-	{
+ */
+	/* {
 		icon: <BsPersonFill className="nav-icons" />,
 		text: "Profile",
 		link: "/dashboard/profile",
-	},
+	}, */
 ];

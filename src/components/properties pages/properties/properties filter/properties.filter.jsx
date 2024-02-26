@@ -1,11 +1,54 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "./properties.filter.scss";
 import Search from "@/components/styled components/inputs/search";
 import { Inputs2 } from "@/components/styled components/inputs/inputs";
 import SelectOption from "@/components/styled components/inputs/select.option";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const PropertiesFilter = () => {
+	const [location, setLocation] = useState("");
+	const [minPrice, setMinPrice] = useState("");
+	const [maxPrice, setMaxPrice] = useState("");
+
 	const locations = ["Nairobi", "Malindi", "Nakuru", "Lamu", "Narok"];
+
+	const searchParams = useSearchParams();
+	const { replace } = useRouter();
+	const pathname = usePathname();
+
+	const handleLocation = (e) => {
+		setLocation(e);
+		const params = new URLSearchParams(searchParams);
+		if (e) {
+			params.set("location", e);
+		} else {
+			params.delete("location");
+		}
+		replace(`${pathname}?${params}`);
+	};
+
+	const handleMinPrice = (e) => {
+		setMinPrice(e);
+		const params = new URLSearchParams(searchParams);
+		if (e) {
+			params.set("min", e);
+		} else {
+			params.delete("min");
+		}
+		replace(`${pathname}?${params}`);
+	};
+
+	const handleMaxPrice = (e) => {
+		setMaxPrice(e);
+		const params = new URLSearchParams(searchParams);
+		if (e) {
+			params.set("max", e);
+		} else {
+			params.delete("max");
+		}
+		replace(`${pathname}?${params}`);
+	};
 
 	return (
 		<div className="properties-filter">
@@ -19,44 +62,34 @@ const PropertiesFilter = () => {
 					<SelectOption
 						label={"Location"}
 						list={locations}
-						/* value={aiLevel} */
-						/* changeValue={(e) => {
-							setAiLevel(e);
-						}} */
+						value={location}
+						changeValue={(e) => {
+							handleLocation(e);
+						}}
 					/>
 				</div>
 				<div className="min f-c">
 					<p>Min Price</p>
 					<Inputs2
-						/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
-						type={"Text"}
+						type={"number"}
 						label={"Min"}
 						id={"min-price"}
-						value={""}
-
-						/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
+						value={minPrice}
+						changeValue={(e) => {
+							handleMinPrice(e);
+						}}
 					/>
 				</div>
 				<div className="max f-c">
 					<p>Max price</p>
 					<Inputs2
-						/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
-						type={"text"}
+						type={"number"}
 						label={"Max"}
 						id={"max-price"}
-						value={""}
-
-						/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
+						value={maxPrice}
+						changeValue={(e) => {
+							handleMaxPrice(e);
+						}}
 					/>
 				</div>
 			</div>

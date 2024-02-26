@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./users.table.scss";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
@@ -11,9 +11,9 @@ import { BsPencilSquare } from "react-icons/bs";
 import { BsTrashFill } from "react-icons/bs";
 
 const columns = [
-	{ field: "id", headerName: "ID", width: 100 },
+	{ field: "_id", headerName: "ID", width: 100 },
 	{
-		field: "profile",
+		field: "image",
 		headerName: "Profile",
 		width: 100,
 		renderCell: (params) => {
@@ -21,7 +21,11 @@ const columns = [
 				<div className="profile-wrapper">
 					<Image
 						className="profile-image"
-						src={params.row.profile}
+						src={
+							params.row.image
+								? params.row.image
+								: "https://i.postimg.cc/fTkF2P9H/download.jpg"
+						}
 						alt="avatar"
 						fill={true}
 					/>
@@ -29,12 +33,7 @@ const columns = [
 			);
 		},
 	},
-	{
-		field: "name",
-		headerName: "Name",
-		width: 200,
-		editable: false,
-	},
+
 	{
 		field: "email",
 		headerName: "Email",
@@ -64,6 +63,20 @@ const columns = [
 			);
 		},
 	},
+
+	{
+		field: "createdAt",
+		headerName: "Joined on",
+		minWidth: 100,
+		flex: 1,
+		editable: false,
+		renderCell: (params) => {
+			const createdAt = params.row.createdAt;
+			const formattedDate = new Date(createdAt).toLocaleDateString();
+			return formattedDate;
+		},
+	},
+
 	{
 		field: "edit",
 		headerName: "Edit",
@@ -86,15 +99,13 @@ const columns = [
 					>
 						<BsPencilSquare style={{ fontSize: "17px" }} />
 					</IconButton>
-
-					<UserEdit
-						open={open}
-						onClose={onClose}
-						profile={params.row.profile}
-						username={params.row.name}
-						email={params.row.email}
-						role={params.row.role}
-					/>
+					{open && (
+						<UserEdit
+							open={open}
+							onClose={onClose}
+							user={params.row}
+						/>
+					)}
 				</>
 			);
 		},
@@ -122,98 +133,28 @@ const columns = [
 						<BsTrashFill style={{ fontSize: "17px" }} />
 					</IconButton>
 
-					<UserDelete
-						open={open}
-						onClose={onClose}
-						username={params.row.name}
-					/>
+					{open && (
+						<UserDelete
+							open={open}
+							onClose={onClose}
+							id={params.row._id}
+							username={params.row.email}
+						/>
+					)}
 				</>
 			);
 		},
 	},
 ];
 
-const rows = [
-	{
-		id: 1,
-		profile:
-			"https://i.postimg.cc/MKJLmQ2z/Free-Photo-Woman-wearing-casual-sweater-on-background-hand-on-chin-thinking-about-question-pensiv.jpg",
-		name: "Ivy mary",
-		email: "ivy12mart@gmail.com",
-		role: "super admin",
-	},
-	{
-		id: 2,
-		profile:
-			"https://i.postimg.cc/PxMDGY7m/16-Black-Chefs-Changing-Food-in-America-Published-2019.jpg",
-		name: "Jordan iwako",
-		email: "Iwako1985@yahoo.com",
-		role: "admin",
-	},
-	{
-		id: 3,
-		profile:
-			"https://i.postimg.cc/cHKJhYSx/woman-have-fun-with-cosmetic-brushes.jpg",
-		name: "Brier mildred",
-		email: "briermildred12@gmail.com",
-		role: "user",
-	},
-	{
-		id: 4,
-		profile:
-			"https://i.postimg.cc/0y3FmJcd/Bonobos-Better-Fitting-Better-Looking-Men-s-Clothing-Accessories-Bonobos.jpg",
-		name: "Johnny andrew",
-		email: "andrewhtl@gmail.com",
-		role: "user",
-	},
-	{
-		id: 5,
-		profile: "https://i.postimg.cc/y6gj5YXW/smiley-man-with-camera.jpg",
-		name: "David j wayne",
-		email: "jwayne@yahoo.com",
-
-		role: "user",
-	},
-	{
-		id: 6,
-		profile:
-			"https://i.postimg.cc/gjWfjXGc/Arkansas-Editorial-with-Javon-M-Wallace.jpg",
-		name: "Dennis druig",
-		email: "Dennisxcx@gmail.com",
-		role: "super admin",
-	},
-	{
-		id: 7,
-		profile:
-			"https://i.postimg.cc/g0rdbZ2f/Add-length-and-volume-using-Human-Hair-Ponytail-Extension.jpg",
-		name: "Claris may",
-		email: "claris2may@gmil.com",
-		role: "user",
-	},
-	{
-		id: 8,
-		profile: "https://i.postimg.cc/WpBBYyrL/This-Is-All-Yours.jpg",
-		name: "Ali muhammed",
-		email: "muhammed45@gmail.com",
-		role: "user",
-	},
-	{
-		id: 9,
-		profile:
-			"https://i.postimg.cc/1zQbRVBW/cheerful-woman-with-dark-wavy-hairstyle-black-striped-outfit-hat-laughing-looking-into-camera-pink-b.jpg",
-		name: "Roxie sarah",
-		email: "sarah345@gmail.com",
-		role: "admin",
-	},
-];
-
-export default function UsersTable() {
+export default function UsersTable({ users }) {
 	return (
 		<Box sx={{ height: "100%", width: "100%", padding: "10px" }}>
 			<DataGrid
 				className="users"
-				rows={rows}
+				rows={users}
 				columns={columns}
+				getRowId={(row) => row._id}
 				initialState={{
 					pagination: {
 						paginationModel: {
@@ -221,9 +162,9 @@ export default function UsersTable() {
 						},
 					},
 					columns: {
-						...rows.initialState?.columns,
+						...users.initialState?.columns,
 						columnVisibilityModel: {
-							id: false,
+							_id: false,
 						},
 					},
 				}}

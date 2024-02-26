@@ -89,6 +89,11 @@
 			cursor: pointer;
 			transition: all 0.4s;
 
+			&:disabled {
+				cursor: not-allowed;
+				background-color: $secondaryDisabled;
+			}
+
 			p {
 				color: white;
 			}

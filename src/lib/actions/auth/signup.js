@@ -134,7 +134,6 @@ export const AuthSignUp = async (data) => {
 
 	const { email, password } = data;
 
-	//--
 	try {
 		connectToDB();
 
@@ -144,7 +143,6 @@ export const AuthSignUp = async (data) => {
 			return { error: "Username already exists" };
 		}
 
-		//const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, 10);
 
 		const newUser = new User({
@@ -153,7 +151,6 @@ export const AuthSignUp = async (data) => {
 		});
 
 		await newUser.save();
-		//	console.log("saved to db");
 
 		try {
 			await signIn("credentials", { email, password });

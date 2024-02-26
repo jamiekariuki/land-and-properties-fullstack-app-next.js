@@ -4,13 +4,15 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const SelectOption = ({
 	list,
-	value,
-	changeValue,
+
 	node,
 	label,
 	disabled,
 	softBg,
 	borderRadius,
+
+	register,
+	name,
 }) => {
 	return (
 		<div
@@ -20,10 +22,7 @@ const SelectOption = ({
 			<select
 				disabled={disabled}
 				id="mySelect"
-				value={value}
-				onChange={(e) => {
-					changeValue(e.target.value);
-				}}
+				{...register(name)}
 				className="input-field"
 				style={{
 					fontSize: node && "11px",

@@ -10,11 +10,11 @@ import Link from "next/link";
 const PropertiesCard2 = ({ item }) => {
 	return (
 		<div className="properties-2">
-			<Link href={`/properties/${item.id}`}>
+			<Link href={`/properties/${item?._id}`}>
 				<div className="p2-top">
 					<Image
 						alt="property image"
-						src={item.picture[0]}
+						src={item?.picture[0]}
 						fill={true}
 						className="property2-image"
 						quality={100}
@@ -24,22 +24,22 @@ const PropertiesCard2 = ({ item }) => {
 
 			<div className="pt2-info">
 				<div className="property2-info">
-					<Link href={`/properties/${item.id}`}>
-						<h3 className="h3-title">{item.title}</h3>
+					<Link href={`/properties/${item?.id}`}>
+						<h3 className="h3-title">{item?.title}</h3>
 					</Link>
-					<p>{item.location}</p>
+					{item?.location && <p>{item?.location}</p>}
 					<h6>
-						{item.description.split(" ").slice(0, 10).join(" ")}
-						{item.description.split(" ").length > 10 && " ..."}
+						{item?.description.split(" ").slice(0, 10).join(" ")}
+						{item?.description.split(" ").length > 10 && " ..."}
 					</h6>
 
 					<h3>
 						<span>Ksh</span>
-						{item.price}
+						{item?.price}
 					</h3>
 
 					<div className="p-actions">
-						{item.saved ? (
+						{item?.saved ? (
 							<AiFillHeart className="save-icon save-filled" />
 						) : (
 							<AiOutlineHeart className="save-icon " />

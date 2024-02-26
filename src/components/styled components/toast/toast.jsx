@@ -4,7 +4,7 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import "./toast.scss";
-import { useToast } from "@/context/ToastContext";
+import { useToast } from "@/context/toastContext";
 
 //type error, warning, success, info
 //use case : showToast("Schedule saved successfully", "success");
@@ -17,7 +17,7 @@ const Toast = () => {
 			return;
 		}
 		setOpen(false);
-	}; 
+	};
 
 	return (
 		<div className="toast">

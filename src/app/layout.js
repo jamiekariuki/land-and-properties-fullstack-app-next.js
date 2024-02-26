@@ -4,9 +4,10 @@ import { ThemeProvider2 } from "@/context/themeContext";
 import { cookies } from "next/headers";
 //import Navbar from "@/components/landing navbar/navbar";
 //import Sidebar from "@/components/landing navbar/sidebar/Sidebar";
-import Footer from "@/components/landing footer/footer";
-//import Toast from "@/components/styled components/toast/toast";
-///import { ToastProvider } from "@/context/ToastContext";
+//import Footer from "@/components/landing footer/footer";
+
+import Toast from "@/components/styled components/toast/toast";
+import { ToastProvider } from "@/context/toastContext";
 
 //fonts
 const cormorant = Cormorant({
@@ -44,15 +45,17 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className={`${cormorant.variable} ${bodoni.variable} `}>
 			<body>
-				{/* <ToastProvider> */}
-				<ThemeProvider2 serverDarkMode={darkMode}>
-					{/* <Navbar />
+				<ToastProvider>
+					<ThemeProvider2 serverDarkMode={darkMode}>
+						{/* <Navbar />
 					<Sidebar /> */}
-					<div className="pages">{children}</div>
-					{/* <Footer /> */}
-				</ThemeProvider2>
-				<div id="toast-portal">{/* <Toast /> */}</div>
-				{/* </ToastProvider> */}
+						<div className="pages">{children}</div>
+						{/* <Footer /> */}
+					</ThemeProvider2>
+					<div id="toast-portal">
+						<Toast />
+					</div>
+				</ToastProvider>
 			</body>
 		</html>
 	);

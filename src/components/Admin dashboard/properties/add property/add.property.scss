@@ -28,6 +28,11 @@
 				border-radius: 6px;
 				cursor: pointer;
 
+				&:disabled {
+					cursor: not-allowed;
+					background-color: $secondaryDisabled;
+				}
+
 				p {
 					color: white;
 				}

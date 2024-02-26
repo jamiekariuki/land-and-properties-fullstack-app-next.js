@@ -2,16 +2,16 @@
 import React, { useState } from "react";
 import "./users.overview.scss";
 import Button from "@mui/material/Button";
-import AddUser from "./add user/add.user";
+//import AddUser from "./add user/add.user";
 import DeleteAllUser from "./delete all user/delete.all.user";
 import { BsTrashFill } from "react-icons/bs";
-import { BsFillPersonPlusFill } from "react-icons/bs";
+//import { BsFillPersonPlusFill } from "react-icons/bs";
 
-const UsersOverview = () => {
-	const [open, setOpen] = useState(false);
+const UsersOverview = ({ count }) => {
+	/* const [open, setOpen] = useState(false);
 	const onClose = () => {
 		setOpen(false);
-	};
+	}; */
 
 	const [open2, setOpen2] = useState(false);
 	const onClose2 = () => {
@@ -25,12 +25,12 @@ const UsersOverview = () => {
 					<h4>Total users:</h4>
 				</div>
 				<div className="totals-data">
-					<h3>10</h3>
+					<h3>{count}</h3>
 				</div>
 			</div>
 
 			<div className="users-buttons">
-				<Button
+				{/* <Button
 					variant="outlined"
 					size="small"
 					startIcon={<BsFillPersonPlusFill className="user-icons" />}
@@ -40,7 +40,7 @@ const UsersOverview = () => {
 				>
 					<h6 className="user-h6">ADD USER</h6>
 				</Button>
-				<AddUser open={open} onClose={onClose} />
+				<AddUser open={open} onClose={onClose} /> */}
 
 				<Button
 					variant="contained"

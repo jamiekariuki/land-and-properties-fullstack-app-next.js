@@ -1,40 +1,40 @@
 import Image from "next/image";
 import React from "react";
-import { BsFillImageFill } from "react-icons/bs";
 import "./property.images.scss";
 import { BsTrashFill } from "react-icons/bs";
+import { FileUploadDropZone } from "@/components/styled components/inputs/fileupload";
 
-const EditPropertyImages = ({ picture }) => {
+const EditPropertyImages = ({ picture, setPicture }) => {
+	const handleImageClick = (index) => {
+		setPicture((prevImage) => prevImage.filter((_, i) => i !== index));
+	};
+
 	return (
 		<div className="edit-property-images">
 			<div className="edit-pi">
-				<div className="input-upload">
-					<div className="icon-container">
-						<BsFillImageFill className="upload-icon" />
-					</div>
-
-					<p>
-						Drag & Drop or <span>Browse</span> <br /> your Media
-						files
-					</p>
-				</div>
+				<FileUploadDropZone Image={picture} setImage={setPicture} />
 			</div>
-			<div className="all-pi">
-				{picture.map((item, index) => (
-					<div className="property-edit-cont" key={index}>
-						<div className="p-edit-backdrop">
-							<BsTrashFill className="delete-pi" />
+			{picture.length > 0 && (
+				<div className="all-pi">
+					{picture.map((item, index) => (
+						<div className="property-edit-cont" key={index}>
+							<div className="p-edit-backdrop">
+								<BsTrashFill
+									className="delete-pi"
+									onClick={() => handleImageClick(index)}
+								/>
+							</div>
+							<Image
+								alt="property image"
+								src={item}
+								fill={true}
+								className="ad-p-image"
+								quality={100}
+							/>
 						</div>
-						<Image
-							alt="property image"
-							src={item}
-							fill={true}
-							className="ad-p-image"
-							quality={100}
-						/>
-					</div>
-				))}
-			</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };
