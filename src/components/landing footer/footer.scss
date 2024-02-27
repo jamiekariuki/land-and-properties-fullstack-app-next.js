@@ -71,6 +71,11 @@
 					background-color: $secondary;
 					cursor: pointer;
 
+					&:disabled {
+						background-color: $secondaryDisabled;
+						cursor: not-allowed;
+					}
+
 					p {
 						color: white;
 					}

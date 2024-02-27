@@ -2,12 +2,11 @@
 import React from "react";
 import "./properties.scss";
 import PropertiesCard from "./properties card/properties.card";
-import { PropertiesData } from "./property";
 import PropertiesFilter from "./properties filter/properties.filter";
 
-const Properties = (properties) => {
+const Properties = ({ properties }) => {
 	return (
-		<div className="properties">
+		<div className="pproperties">
 			<div className="properties-container">
 				<div className="properties-filter-container">
 					<PropertiesFilter />

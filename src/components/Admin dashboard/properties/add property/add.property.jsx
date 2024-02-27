@@ -36,7 +36,7 @@ const AddProperty = () => {
 		if (success !== "") {
 			showToast(success, "success");
 			//redirect here
-			//	const router = useRouter();
+
 			router.push("/dashboard/properties", { scroll: false });
 		} else if (error !== "") {
 			showToast(error, "error");

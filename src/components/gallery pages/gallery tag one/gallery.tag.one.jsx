@@ -4,7 +4,7 @@ import "./gallery.tag.one.scss";
 import Image from "next/image";
 import { sliderData } from "@/components/landing pages/hero/slides.data";
 
-const GalleryTagOne = () => {
+const GalleryTagOne = ({ pictures }) => {
 	return (
 		<div className="gallery-tag-one">
 			<div className="gallery-1">
@@ -15,9 +15,9 @@ const GalleryTagOne = () => {
 				</p>
 			</div>
 			<div className="gallery">
-				{sliderData.map((item, index) => (
+				{pictures.map((item, index) => (
 					<div className="gallery-box" key={index}>
-						<GalleryCard pic={item.pic} />
+						<GalleryCard pic={item.picture} />
 					</div>
 				))}
 			</div>

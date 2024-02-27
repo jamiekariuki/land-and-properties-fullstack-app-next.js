@@ -85,4 +85,57 @@ const TextArea2 = ({
 	);
 };
 
-export { Inputs2, TextArea2 };
+const InputPlain = ({
+	id,
+	disabled,
+	error,
+	type,
+	label,
+	node,
+	softBg,
+	bg,
+	borderRadius,
+	value,
+	onValueChange,
+}) => {
+	return (
+		<div
+			className={softBg ? "inputs softbg" : "inputs"}
+			style={{ height: node && "27px" }}
+		>
+			<input
+				id={id}
+				disabled={disabled}
+				placeholder=" "
+				value={value}
+				onChange={(e) => {
+					onValueChange(e.target.value);
+				}}
+				type={type}
+				className="input-field"
+				style={{
+					borderColor: error && "rgba(255, 0, 0, 0.45)",
+					fontSize: node && "12px",
+					backgroundColor: bg ? bg : "",
+					borderRadius: borderRadius ? "5px" : "",
+				}}
+			/>
+			<label
+				className={disabled && "label-disabled"}
+				style={{ backgroundColor: bg ? bg : "" }}
+			>
+				<p
+					style={{
+						color: error && "rgba(255, 0, 0, 0.98)",
+						fontSize: node && "12px",
+					}}
+				>
+					{label}
+				</p>
+			</label>
+			{error && <p className="input-error">{error}</p>}
+		</div>
+	);
+};
+
+export { Inputs2, TextArea2, InputPlain };

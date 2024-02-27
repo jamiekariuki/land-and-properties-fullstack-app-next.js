@@ -60,6 +60,11 @@
 					padding: 5px 20px;
 					cursor: pointer;
 
+					&:disabled {
+						background-color: $secondaryDisabled;
+						cursor: not-allowed;
+					}
+
 					p {
 						color: white;
 					}

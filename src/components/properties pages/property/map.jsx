@@ -14,8 +14,10 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: markerShadow.src,
 });
 
-const Map = () => {
-	const position = [51.505, -0.09];
+const Map = ({ coordinates }) => {
+	const coordinatesArray = coordinates.split(",").map((word) => word.trim());
+
+	const position = coordinates ? coordinatesArray : [1, 1];
 
 	return (
 		<MapContainer
@@ -29,9 +31,7 @@ const Map = () => {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
 			<Marker position={position}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
+				<Popup></Popup>
 			</Marker>
 		</MapContainer>
 	);

@@ -30,6 +30,15 @@
 
 				h6 {
 					font-size: 17px;
+					display: flex;
+					align-items: center;
+
+					span {
+						cursor: pointer;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
 				}
 
 				p {

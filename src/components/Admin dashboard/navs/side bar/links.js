@@ -5,6 +5,7 @@ import { BsEnvelopeAtFill } from "react-icons/bs";
 import { BsFillImageFill } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 import { BsStack } from "react-icons/bs";
+import { IoIosLogOut } from "react-icons/io";
 
 //----dashboard
 
@@ -45,4 +46,9 @@ export const NavigationLinks = [
 		text: "Profile",
 		link: "/dashboard/profile",
 	}, */
+
+	{
+		icon: <IoIosLogOut className="nav-icons" />,
+		text: "Logout",
+	},
 ];

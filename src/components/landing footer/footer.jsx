@@ -12,6 +12,12 @@ import { links } from "../landing navbar/nav.links";
 import { BsEnvelope } from "react-icons/bs";
 import { BsPinMapFill } from "react-icons/bs";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useToast } from "@/context/toastContext";
+import { SubscriberSchema } from "@/utils/validators/subscriber.schema";
+import { addSubscriber } from "@/lib/actions/subscribers";
+
 const Footer = () => {
 	const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
@@ -26,32 +32,63 @@ const Footer = () => {
 		const newYear = new Date().getFullYear();
 		setCurrentYear(newYear);
 	};
+
+	//----
+	const { showToast } = useToast();
+
+	const [error, setError] = useState("");
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState("");
+
+	const {
+		handleSubmit,
+		register,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(SubscriberSchema),
+	});
+
+	useEffect(() => {
+		if (success !== "") {
+			showToast(success, "success");
+		} else if (error !== "") {
+			showToast(error, "error");
+		}
+		setError("");
+		setSuccess("");
+	}, [success, error]);
+
+	const onSubmit = (data) => {
+		setSubmiting(true);
+		//server action
+		addSubscriber(data).then((data) => {
+			setError(data?.error);
+			setSuccess(data?.success);
+			setSubmiting(false);
+		});
+	};
+
+	if (errors.email.message) {
+		showToast(errors.email.message, "error");
+	}
+
 	return (
 		<div className="footer">
 			<div className="footer-container">
 				<div className="footer-cont footer-left">
-					<div className="fl-cont">
+					<form className="fl-cont" onSubmit={handleSubmit(onSubmit)}>
 						<p>Subscribe to our news letter</p>
 
 						<input
 							id={"sub-email"}
-							/* disabled={disabled} */
-							/* {...register(id, { required })} */
-							/*
-							 */
 							placeholder="Enter your email "
-							/* onChange={(e) => {
-						setDefaultValue(e.target.value);
-					}} */
 							type={"email"}
 							className="input-field"
-							/* style={{
-						borderColor: error && "rgba(255, 0, 0, 0.45)",
-					}} */
+							{...register("email")}
 						/>
 
-						<button>
-							<p>Submit</p>
+						<button disabled={submiting}>
+							{submiting ? <p>Submiting...</p> : <p>Submit</p>}
 						</button>
 
 						<div className="fl-company">
@@ -66,7 +103,7 @@ const Footer = () => {
 								1074-00241. We're here to assist you.
 							</p>
 						</div>
-					</div>
+					</form>
 				</div>
 				<div className="footer-cont footer-middle">
 					<div className="fm-cont">

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./contact.tag.one.scss";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import {
@@ -8,7 +9,47 @@ import {
 import SplitLayout from "@/components/styled components/containers/split layout/split.layout";
 import Link from "next/link";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useToast } from "@/context/toastContext";
+import { addMessage } from "@/lib/actions/message";
+import { MessageSchema } from "@/utils/validators/message.schema";
+
 const ContactTagOne = () => {
+	const { showToast } = useToast();
+
+	const [error, setError] = useState("");
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState("");
+
+	const {
+		handleSubmit,
+		register,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(MessageSchema),
+	});
+
+	useEffect(() => {
+		if (success !== "") {
+			showToast(success, "success");
+		} else if (error !== "") {
+			showToast(error, "error");
+		}
+		setError("");
+		setSuccess("");
+	}, [success, error]);
+
+	const onSubmit = (data) => {
+		setSubmiting(true);
+		//server action
+		addMessage(data).then((data) => {
+			setError(data?.error);
+			setSuccess(data?.success);
+			setSubmiting(false);
+		});
+	};
+
 	return (
 		<div className="contact-tag-one">
 			<div className="contact-1">
@@ -60,84 +101,62 @@ const ContactTagOne = () => {
 					</div>
 				</div>
 				<div className="split-right">
-					<div className="contact-right">
+					<form
+						className="contact-right"
+						onSubmit={handleSubmit(onSubmit)}
+					>
 						<h3>Send us a message</h3>
-
-						<div className="contact-form">
-							<h6>Email</h6>
-							<Inputs2
-								/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
-								type={"email"}
-								label={"Email"}
-								id={"contantc-mail"}
-								value={""}
-
-								/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
-							/>
-						</div>
 
 						<div className="contact-form">
 							<h6>Full name</h6>
 							<Inputs2
-								/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
+								error={errors.name?.message}
+								register={register}
+								name={"name"}
 								type={"text"}
 								label={"Name"}
-								id={"contact-name"}
-								value={""}
-
-								/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
+								id={"c-name"}
+							/>
+						</div>
+						<div className="contact-form">
+							<h6>Email</h6>
+							<Inputs2
+								error={errors.email?.message}
+								register={register}
+								name={"email"}
+								type={"email"}
+								label={"Email"}
+								id={"c-mail"}
 							/>
 						</div>
 
 						<div className="contact-form">
 							<h6>Phone number</h6>
 							<Inputs2
-								/* error={
-									formData.title.replace(/\s/g, "").length >=
-									maxTitleLength
-								} */
+								error={errors.number?.message}
+								register={register}
+								name={"number"}
 								type={"text"}
 								label={"phone number "}
-								id={"contact-phone-number"}
-								value={""}
-
-								/* changeValue={(e) => {
-									handleChange("title", e);
-								}} */
+								id={"c-phone-number"}
 							/>
 						</div>
 
 						<div className="contact-form">
 							<h6>Message</h6>
 							<TextArea2
-								/* error={
-							systemPrompt.replace(/\s/g, "").length >=
-							systemPromptLength
-						} */
-
-								label={"Enter message..."}
-								id={"contact-message"}
-								value={""}
+								error={errors.message?.message}
+								register={register}
+								name={"message"}
+								label={"Enter message ..."}
+								id={"c-message"}
 								inputHeight={"70px"}
-								/* changeValue={(e) => {
-							setSystemPrompt(e);
-						}} */
 							/>
 						</div>
-						<button>
-							<p>Send</p>
+						<button disabled={submiting}>
+							{submiting ? <p>Sending...</p> : <p>Send</p>}
 						</button>
-					</div>
+					</form>
 				</div>
 			</SplitLayout>
 		</div>

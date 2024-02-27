@@ -10,7 +10,7 @@ import Link from "next/link";
 const PropertiesCard2 = ({ item }) => {
 	return (
 		<div className="properties-2">
-			<Link href={`/properties/${item?._id}`}>
+			<Link href={`/properties/${item._id}`}>
 				<div className="p2-top">
 					<Image
 						alt="property image"
@@ -31,6 +31,9 @@ const PropertiesCard2 = ({ item }) => {
 					<h6>
 						{item?.description.split(" ").slice(0, 10).join(" ")}
 						{item?.description.split(" ").length > 10 && " ..."}
+						<Link href={`/properties/${item?.id}`}>
+							<span>Read more</span>
+						</Link>
 					</h6>
 
 					<h3>
@@ -39,13 +42,14 @@ const PropertiesCard2 = ({ item }) => {
 					</h3>
 
 					<div className="p-actions">
-						{item?.saved ? (
+						{/* {item?.saved ? (
 							<AiFillHeart className="save-icon save-filled" />
 						) : (
 							<AiOutlineHeart className="save-icon " />
-						)}
-
-						<IoLocationOutline className="save-icon" />
+						)} */}
+						<Link href={item.location}>
+							<IoLocationOutline className="save-icon" />
+						</Link>
 					</div>
 				</div>
 			</div>

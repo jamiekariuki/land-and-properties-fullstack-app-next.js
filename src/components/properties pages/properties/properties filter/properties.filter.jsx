@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import "./properties.filter.scss";
 import Search from "@/components/styled components/inputs/search";
-import { Inputs2 } from "@/components/styled components/inputs/inputs";
-import SelectOption from "@/components/styled components/inputs/select.option";
+import { InputPlain } from "@/components/styled components/inputs/inputs";
+import { SelectOptionPlain } from "@/components/styled components/inputs/select.option";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const PropertiesFilter = () => {
@@ -59,37 +59,31 @@ const PropertiesFilter = () => {
 			<div className="category-filter">
 				<div className="location f-c">
 					<p>Select Location</p>
-					<SelectOption
+					<SelectOptionPlain
 						label={"Location"}
 						list={locations}
 						value={location}
-						changeValue={(e) => {
-							handleLocation(e);
-						}}
+						onValueChange={handleLocation}
 					/>
 				</div>
 				<div className="min f-c">
 					<p>Min Price</p>
-					<Inputs2
+					<InputPlain
 						type={"number"}
 						label={"Min"}
 						id={"min-price"}
 						value={minPrice}
-						changeValue={(e) => {
-							handleMinPrice(e);
-						}}
+						onValueChange={handleMinPrice}
 					/>
 				</div>
 				<div className="max f-c">
 					<p>Max price</p>
-					<Inputs2
+					<InputPlain
 						type={"number"}
 						label={"Max"}
 						id={"max-price"}
 						value={maxPrice}
-						changeValue={(e) => {
-							handleMaxPrice(e);
-						}}
+						onValueChange={handleMaxPrice}
 					/>
 				</div>
 			</div>

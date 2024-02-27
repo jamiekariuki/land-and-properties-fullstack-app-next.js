@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./property.scss";
 import { PropertiesData } from "../properties/property";
 import { IoLocationOutline } from "react-icons/io5";
@@ -19,8 +19,52 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 const MapC = dynamic(() => import("./map"), { ssr: false });
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useToast } from "@/context/toastContext";
+import { addMessage } from "@/lib/actions/message";
+import { MessageSchema } from "@/utils/validators/message.schema";
+
 const Property = ({ item }) => {
 	const [pic, setPic] = useState(0);
+
+	const AmenitiesArray = item.amenities.split(",").map((word) => word.trim());
+
+	//----------------------
+	const { showToast } = useToast();
+
+	const [error, setError] = useState("");
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState("");
+
+	const {
+		handleSubmit,
+		register,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(MessageSchema),
+	});
+
+	useEffect(() => {
+		if (success !== "") {
+			showToast(success, "success");
+		} else if (error !== "") {
+			showToast(error, "error");
+		}
+		setError("");
+		setSuccess("");
+	}, [success, error]);
+
+	const onSubmit = (data) => {
+		setSubmiting(true);
+		//server action
+		data.propertyId = item._id;
+		addMessage(data).then((data) => {
+			setError(data?.error);
+			setSuccess(data?.success);
+			setSubmiting(false);
+		});
+	};
 
 	return (
 		<div className="property">
@@ -75,12 +119,6 @@ const Property = ({ item }) => {
 							</div>
 
 							<div className="p-actions">
-								{item.saved ? (
-									<AiFillHeart className="save-icon save-filled" />
-								) : (
-									<AiOutlineHeart className="save-icon " />
-								)}
-
 								<IoLocationOutline className="save-icon" />
 							</div>
 						</div>
@@ -88,86 +126,65 @@ const Property = ({ item }) => {
 				</div>
 				<div className="property-bottom">
 					<div className="pb-left">
-						<div className="pb-form-container">
+						<form
+							className="pb-form-container"
+							onSubmit={handleSubmit(onSubmit)}
+						>
 							<h5>Contact us on this property</h5>
 
 							<div className="contact-form">
 								<h6>Full name</h6>
 								<Inputs2
-									/* error={
-			formData.title.replace(/\s/g, "").length >=
-			maxTitleLength
-		} */
+									error={errors.name?.message}
+									register={register}
+									name={"name"}
 									type={"text"}
 									label={"Name"}
 									id={"p-name"}
-									value={""}
-
-									/* changeValue={(e) => {
-			handleChange("title", e);
-		}} */
 								/>
 							</div>
 							<div className="contact-form">
 								<h6>Email</h6>
 								<Inputs2
-									/* error={
-			formData.title.replace(/\s/g, "").length >=
-			maxTitleLength
-		} */
+									error={errors.email?.message}
+									register={register}
+									name={"email"}
 									type={"email"}
 									label={"Email"}
 									id={"p-mail"}
-									value={""}
-
-									/* changeValue={(e) => {
-			handleChange("title", e);
-		}} */
 								/>
 							</div>
 
 							<div className="contact-form">
 								<h6>Phone number</h6>
 								<Inputs2
-									/* error={
-			formData.title.replace(/\s/g, "").length >=
-			maxTitleLength
-		} */
+									error={errors.number?.message}
+									register={register}
+									name={"number"}
 									type={"text"}
 									label={"phone number "}
 									id={"contact-phone-number"}
-									value={""}
-
-									/* changeValue={(e) => {
-			handleChange("title", e);
-		}} */
 								/>
 							</div>
 
 							<div className="contact-form">
 								<h6>Message</h6>
 								<TextArea2
-									/* error={
-	systemPrompt.replace(/\s/g, "").length >=
-	systemPromptLength
-} */
-
+									error={errors.message?.message}
+									register={register}
+									name={"message"}
 									label={"Enter message ..."}
 									id={"contact-message"}
-									value={""}
 									inputHeight={"70px"}
-									/* changeValue={(e) => {
-	setSystemPrompt(e);
-}} */
 								/>
 							</div>
-							<button>
-								<p>Send</p>
+							<button disabled={submiting}>
+								{submiting ? <p>Sending...</p> : <p>Send</p>}
 							</button>
-						</div>
+						</form>
 					</div>
 					<div className="pb-right">
-						<MapC />
+						<MapC coordinates={item.coordinates} />
 					</div>
 				</div>
 
@@ -181,7 +198,7 @@ const Property = ({ item }) => {
 									<h6> Amenities arround</h6>
 								</div>
 								<div className="mi-wrapper">
-									{item.amenities.map((item, index) => (
+									{AmenitiesArray.map((item, index) => (
 										<div
 											className="mi-container"
 											key={index}

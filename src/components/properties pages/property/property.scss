@@ -162,6 +162,11 @@
 							border: 0;
 							cursor: pointer;
 
+							&:disabled {
+								background-color: $secondaryDisabled;
+								cursor: not-allowed;
+							}
+
 							p {
 								color: white;
 							}
@@ -203,7 +208,6 @@
 					.more-info-title {
 						display: flex;
 						align-items: center;
-						justify-content: center;
 						gap: 10px;
 
 						.mit-icon {
