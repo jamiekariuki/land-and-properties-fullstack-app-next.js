@@ -36,7 +36,7 @@ export const AdminNavbar = () => {
 						<SlMenu className="menu-icon" />
 					</div>
 
-					<h1>Users</h1>
+					{/* <h1>Users</h1> */}
 				</div>
 
 				<div className="right">

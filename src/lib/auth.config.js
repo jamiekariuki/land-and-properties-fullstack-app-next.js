@@ -54,14 +54,9 @@ export const authConfig = {
 			} */
 			//console.log(request.nextUrl);
 			const nextUrl = request.nextUrl;
-			const user = auth.user;
+			const user = auth?.user;
 
-			//const isLoggedIn = !!req.auth;
-			let isAdmin = false;
-
-			if (user?.role !== "user") {
-				isAdmin = true;
-			}
+		
 
 			const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
 			//const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
@@ -73,21 +68,23 @@ export const authConfig = {
 			}
 
 			//none admins shouldnt go to dash
-			if (isAdminRoute) {
-				if (!isAdmin) {
-					return Response.redirect(new URL("/", nextUrl));
-				}
-				return null;
+			if (isAdminRoute && !user?.role === "user") {
+				return false;
 			}
 
 			//if in login pages , redirected to respective pages
 			if (isLoginRoutes) {
-				if (!isAdmin) {
-					return Response.redirect(new URL("/", nextUrl));
-				} else {
-					return Response.redirect(
-						new URL("/dashboard/users", nextUrl)
-					);
+				if (user) {
+					if (user?.role === "user") {
+						return Response.redirect(new URL("/", nextUrl));
+					} else if (
+						user?.role === "admin" ||
+						user?.role === "super admin"
+					) {
+						return Response.redirect(
+							new URL("/dashboard/users", nextUrl)
+						);
+					}
 				}
 			}
 

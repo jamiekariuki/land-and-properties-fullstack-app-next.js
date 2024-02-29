@@ -1,5 +1,5 @@
 "use client";
-import Notification from "../notifications/notifications";
+//import Notification from "../notifications/notifications";
 import { DarkMode } from "../dark mode/dark.mode";
 import "./account.menu.scss";
 import Image from "next/image";
@@ -8,7 +8,7 @@ export default function AccountMenu() {
 	return (
 		<div className="account-menu">
 			<DarkMode />
-			<Notification />
+			{/* <Notification /> */}
 
 			<div className="avatar-container">
 				<Image

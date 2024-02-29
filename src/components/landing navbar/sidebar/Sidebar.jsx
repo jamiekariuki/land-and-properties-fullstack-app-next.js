@@ -4,6 +4,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Links from "./links/Links";
 import "./sidebar.scss";
 import ToggleButton from "./toggleButton/ToggleButton";
+import { usePathname } from "next/navigation";
 
 const variants = {
 	open: {
@@ -36,21 +37,35 @@ const Sidebar = () => {
 		setBg(false);
 	});
 
-	return (
-		<motion.div className="sidebar" animate={open ? "open" : "closed"}>
-			<motion.div
-				className="bg"
-				variants={variants}
-				style={{
-					backgroundColor: bg && "transparent",
-				}}
-			>
-				<Links closeNav={closeNav} bg={bg} />
-			</motion.div>
+	const pathname = usePathname();
+	const pathParts = pathname.split("/");
+	const firstPathname = pathParts[1];
 
-			<ToggleButton setOpen={setOpen} />
-		</motion.div>
-	);
+	if (
+		!(
+			firstPathname === "dashboard" ||
+			firstPathname === "login" ||
+			firstPathname === "sign-up"
+		)
+	) {
+		return (
+			<motion.div className="sidebar" animate={open ? "open" : "closed"}>
+				<motion.div
+					className="bg"
+					variants={variants}
+					style={{
+						backgroundColor: bg && "transparent",
+					}}
+				>
+					<Links closeNav={closeNav} bg={bg} />
+				</motion.div>
+
+				<ToggleButton setOpen={setOpen} />
+			</motion.div>
+		);
+	} else {
+		return null;
+	}
 };
 
 export default Sidebar;

@@ -48,7 +48,7 @@ export const NavigationLinks = [
 	}, */
 
 	{
-		icon: <IoIosLogOut className="nav-icons" />,
+		icon: <IoIosLogOut className="nav-icons" style={{ scale: "1.38" }} />,
 		text: "Logout",
 	},
 ];

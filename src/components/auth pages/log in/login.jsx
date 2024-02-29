@@ -7,9 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthSchema } from "@/utils/validators/authentication/auth.schema";
 import { AuthLogIn, GoogleLogin } from "@/lib/actions/auth/login";
-import { useFormStatus } from "react-dom";
-
-import { useFormStatus } from "react-dom";
 
 const Login = () => {
 	const [error, setError] = useState();

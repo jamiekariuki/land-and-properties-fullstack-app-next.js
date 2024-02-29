@@ -3,7 +3,7 @@ import React from "react";
 import "./navigations.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut } from "@/lib/auth";
+import { AuthLogout } from "@/lib/actions/auth/logout";
 
 const Navigations = ({
 	icon,
@@ -55,36 +55,42 @@ const Navigations = ({
 		);
 	} else {
 		return (
-			<form
-				action={signOut}
-				className="general-links"
-				onClick={handleMobileSidebarToggle}
-				style={{
-					backgroundColor: pathname === link && "#e82e59",
-				}}
-			>
-				<div
-					className={
-						sideBar
-							? "side-bar-icon side-bar-icon-collapse"
-							: "side-bar-icon"
-					}
+			<form action={AuthLogout}>
+				<button
+					className="general-links"
+					onClick={handleMobileSidebarToggle}
+					style={{
+						backgroundColor: pathname === link && "#e82e59",
+					}}
 				>
-					<div className={pathname === link ? "link-color" : "link"}>
-						{icon}
-					</div>
-				</div>
-
-				{!sideBar && (
-					<h5
-						className="h5text"
-						style={{
-							color: pathname === link && "white",
-						}}
+					<div
+						/* style={{ border: "0", backgroundColor: "transparent" }} */
+						className={
+							sideBar
+								? "side-bar-icon side-bar-icon-collapse"
+								: "side-bar-icon"
+						}
 					>
-						{text}
-					</h5>
-				)}
+						<div
+							className={
+								pathname === link ? "link-color" : "link"
+							}
+						>
+							{icon}
+						</div>
+					</div>
+
+					{!sideBar && (
+						<h5
+							className="h5text"
+							style={{
+								color: pathname === link && "white",
+							}}
+						>
+							{text}
+						</h5>
+					)}
+				</button>
 			</form>
 		);
 	}

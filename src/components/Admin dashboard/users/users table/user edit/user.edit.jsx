@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./user.edit.scss";
 import Modal from "@/components/styled components/modals/modal";
 import { Inputs2 } from "@/components/styled components/inputs/inputs";
-import SelectOption from "@/components/styled components/inputs/select.option";
+import { SelectOption } from "@/components/styled components/inputs/select.option";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useToast } from "@/context/toastContext";

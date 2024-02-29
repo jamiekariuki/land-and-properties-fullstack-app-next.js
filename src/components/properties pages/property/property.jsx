@@ -255,7 +255,9 @@ const Property = ({ item }) => {
 					</div>
 				</div>
 
-				<div className="similar-properties">
+				{
+					{
+						/* <div className="similar-properties">
 					<h3>Similar Properties</h3>
 					<div className="similar-properties-container">
 						{PropertiesData.map((item, index) => (
@@ -264,7 +266,9 @@ const Property = ({ item }) => {
 							</div>
 						))}
 					</div>
-				</div>
+				</div> */
+					}
+				}
 			</div>
 		</div>
 	);
