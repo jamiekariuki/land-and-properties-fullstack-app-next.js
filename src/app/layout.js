@@ -28,7 +28,7 @@ const bodoni = Bodoni_Moda({
 //meta data
 export const metadata = {
 	title: "Peculiarmarc",
-	description: "",
+	description: "peculiar",
 };
 
 export default async function RootLayout({ children }) {
