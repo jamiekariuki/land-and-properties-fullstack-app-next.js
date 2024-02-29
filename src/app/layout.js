@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 //import Toast from "@/components/styled components/toast/toast";
 //import { ToastProvider } from "@/context/toastContext";
-import { currentServerUser } from "@/utils/get current user/get.current.server.user";
+//import { currentServerUser } from "@/utils/get current user/get.current.server.user";
 
 //fonts
 const cormorant = Cormorant({
@@ -43,7 +43,7 @@ export default async function RootLayout({ children }) {
 		}
 	}
 
-	const user = await currentServerUser();
+	//const user = await currentServerUser();
 
 	return (
 		<html lang="en" className={`${cormorant.variable} ${bodoni.variable} `}>
