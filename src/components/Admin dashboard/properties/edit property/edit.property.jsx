@@ -12,6 +12,7 @@ import { PropertySchema } from "@/utils/validators/property.schema";
 import { useToast } from "@/context/toastContext";
 import { updateProperty } from "@/lib/actions/properties";
 import { useRouter } from "next/navigation";
+import Checkbox2 from "@/components/styled components/inputs/checkbox";
 
 const EditProperty = ({ item }) => {
 	const { showToast } = useToast();
