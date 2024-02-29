@@ -68,9 +68,9 @@ const Footer = () => {
 		});
 	};
 
-	if (errors.email.message) {
+	/* if (errors.email.message) {
 		showToast(errors.email.message, "error");
-	}
+	} */
 
 	//------
 	const pathname = usePathname();
