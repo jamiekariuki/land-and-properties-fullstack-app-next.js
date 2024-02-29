@@ -9,23 +9,15 @@ nav {
 	height: 50px;
 	display: flex;
 	align-items: center;
-	padding: 0 70px;
+	padding: 0 50px;
 	justify-content: space-between;
 	gap: 50px;
 
-	@media (max-width: 900px) {
-		justify-content: center;
+	@media (max-width: 600px) {
+		padding: 0 15px;
 	}
 
 	.logo {
-		/* height: 66%;
-		width: 100px;
-		position: relative;
-		cursor: pointer;
-
-		.logo-img {
-			object-fit: cover;
-		} */
 		cursor: pointer;
 		h6 {
 			font-size: 20px;
@@ -73,6 +65,35 @@ nav {
 				}
 				&:hover::after {
 					width: 100%;
+				}
+			}
+		}
+	}
+
+	.for-auth {
+		.login-btns {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+
+			button {
+				padding: 3px 10px;
+				background-color: $secondary;
+				border: 1px solid $secondary;
+
+				cursor: pointer;
+
+				p {
+					color: white;
+					font-size: 17px;
+				}
+
+				&.sign-up {
+					background-color: transparent;
+
+					p {
+						color: $secondary;
+					}
 				}
 			}
 		}

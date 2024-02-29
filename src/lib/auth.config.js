@@ -1,3 +1,10 @@
+import {
+	adminRoutes,
+	apiAuthPrefix,
+	loginRoutes,
+	publicRoutes,
+} from "@/utils/auth routes/routes";
+
 export const authConfig = {
 	pages: {
 		signIn: "/login",
@@ -8,7 +15,7 @@ export const authConfig = {
 		async jwt({ token, user }) {
 			if (user) {
 				token.id = user.id;
-				token.role = user.role;
+				token.role = user._doc.role;
 			}
 			return token;
 		},
@@ -45,6 +52,44 @@ export const authConfig = {
 			if (isOnLoginPage && user) {
 				return Response.redirect(new URL("/", request.nextUrl));
 			} */
+			//console.log(request.nextUrl);
+			const nextUrl = request.nextUrl;
+			const user = auth.user;
+
+			//const isLoggedIn = !!req.auth;
+			let isAdmin = false;
+
+			if (user?.role !== "user") {
+				isAdmin = true;
+			}
+
+			const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
+			//const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+			const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
+			const isLoginRoutes = loginRoutes.includes(nextUrl.pathname);
+
+			if (isApiAuthRoute) {
+				return null;
+			}
+
+			//none admins shouldnt go to dash
+			if (isAdminRoute) {
+				if (!isAdmin) {
+					return Response.redirect(new URL("/", nextUrl));
+				}
+				return null;
+			}
+
+			//if in login pages , redirected to respective pages
+			if (isLoginRoutes) {
+				if (!isAdmin) {
+					return Response.redirect(new URL("/", nextUrl));
+				} else {
+					return Response.redirect(
+						new URL("/dashboard/users", nextUrl)
+					);
+				}
+			}
 
 			return true;
 		},

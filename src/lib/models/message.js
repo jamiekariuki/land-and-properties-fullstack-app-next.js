@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema(
 	{
-		propertyId: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "Property",
-		},
 		name: {
 			type: String,
 		},
@@ -19,6 +15,21 @@ const messageSchema = new mongoose.Schema(
 		message: {
 			type: String,
 			required: true,
+		},
+		property: {
+			propertyId: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "Property",
+			},
+			title: {
+				type: String,
+			},
+			description: {
+				type: String,
+			},
+			picture: {
+				type: [String],
+			},
 		},
 	},
 	{ timestamps: true }

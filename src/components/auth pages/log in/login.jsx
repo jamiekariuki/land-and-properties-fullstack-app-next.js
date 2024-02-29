@@ -13,6 +13,7 @@ import { useFormStatus } from "react-dom";
 
 const Login = () => {
 	const [error, setError] = useState();
+	const [submiting, setSubmiting] = useState(false);
 
 	const {
 		handleSubmit,
@@ -24,8 +25,10 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		setError("");
+		setSubmiting(true);
 		AuthLogIn(data).then((data) => {
 			setError(data.error);
+			setSubmiting(false);
 		});
 	};
 
@@ -75,7 +78,9 @@ const Login = () => {
 					</p>
 				)}
 
-				<SubmitBtn />
+				<button className="direct-btn" disabled={submiting}>
+					{submiting ? <p>submiting...</p> : <p>Login</p>}
+				</button>
 			</form>
 			<div className="or-container">
 				<p>OR</p>
@@ -101,13 +106,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const SubmitBtn = () => {
-	const { pending } = useFormStatus();
-
-	return (
-		<button className="direct-btn" disabled={pending}>
-			{pending ? <p>submiting...</p> : <p>Login</p>}
-		</button>
-	);
-};

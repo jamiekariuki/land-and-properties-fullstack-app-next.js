@@ -5,8 +5,10 @@ import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { links } from "./nav.links";
+import { usePathname } from "next/navigation";
+import AccountMenu2 from "./dropdown.nav";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
 	const [nav, setNav] = useState();
 
 	useEffect(() => {
@@ -39,43 +41,72 @@ const Navbar = () => {
 		}
 	});
 
-	return (
-		<motion.nav
-			style={{
-				position: nav ? "fixed" : "absolute",
-				backgroundColor: nav || "transparent",
-			}}
-			variants={{
-				visible: { y: 0 },
-				hidden: { y: "-100%" },
-			}}
-			animate={hidden ? "hidden" : "visible"}
-			transition={{ duration: 0.3, ease: "easeInOut" }}
-		>
-			<div className="logo">
-				{/* <Image
-					alt="kello services logo"
-					src="https://i.postimg.cc/vHTF5HTP/KSL-Final-Brand-Logo-Design-widescreen-blue-19-04-2022-removebg-preview.png"
-					fill={true}
-					className="logo-img"
-					quality={100}
-				/> */}
-				<h6>
-					Perculiarmarc <span>Ventures</span>
-				</h6>
-			</div>
+	const pathname = usePathname();
+	const pathParts = pathname.split("/");
+	const firstPathname = pathParts[1];
 
-			<div className="links">
-				<ul>
-					{links.map((link, index) => (
-						<li key={index}>
-							<Link href={link.href}>{link.name}</Link>
-						</li>
-					))}
-				</ul>
-			</div>
-		</motion.nav>
-	);
+	if (
+		!(
+			firstPathname === "dashboard" ||
+			firstPathname === "login" ||
+			firstPathname === "sign-up"
+		)
+	) {
+		return (
+			<motion.nav
+				style={{
+					position: nav ? "fixed" : "absolute",
+					backgroundColor: nav || "transparent",
+				}}
+				variants={{
+					visible: { y: 0 },
+					hidden: { y: "-100%" },
+				}}
+				animate={hidden ? "hidden" : "visible"}
+				transition={{ duration: 0.3, ease: "easeInOut" }}
+			>
+				<div className="logo">
+					<Link href={"/"}>
+						<h6>
+							Perculiarmarc <span>Ventures</span>
+						</h6>
+					</Link>
+				</div>
+
+				<div className="links">
+					<ul>
+						{links.map((link, index) => (
+							<li key={index}>
+								<Link href={link.href}>{link.name}</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div className="for-auth">
+					{!user ? (
+						<div className="login-btns">
+							<Link href={"/sign-up"}>
+								<button className="sign-up">
+									<p>Sign up</p>
+								</button>
+							</Link>
+
+							<Link href={"/login"}>
+								<button>
+									<p>Login</p>
+								</button>
+							</Link>
+						</div>
+					) : (
+						<AccountMenu2 user={user} />
+					)}
+				</div>
+			</motion.nav>
+		);
+	} else {
+		return null;
+	}
 };
 
 export default Navbar;

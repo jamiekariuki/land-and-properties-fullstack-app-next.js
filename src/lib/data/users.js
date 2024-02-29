@@ -12,3 +12,14 @@ export const GetAllUsers = async () => {
 		throw new Error("Failed to fetch users!");
 	}
 };
+
+export const GetUser = async (id) => {
+	try {
+		connectToDB();
+		const users = await User.findById(id);
+		return users;
+	} catch (err) {
+		//console.log(err);
+		throw new Error("Failed to fetch users!");
+	}
+};

@@ -25,12 +25,12 @@ export const NavigationLinks = [
 		text: "properties",
 		link: "/dashboard/properties",
 	},
-	/* {
-		icon: <BsChatLeftTextFill className="nav-icons" />,
-		text: "Inbox",
-		link: "/dashboard/inbox",
-	},
 	{
+		icon: <BsChatLeftTextFill className="nav-icons" />,
+		text: "Messages",
+		link: "/dashboard/messages",
+	},
+	/*{
 		icon: <BsEnvelopeAtFill className="nav-icons" />,
 		text: "mail",
 		link: "/dashboard/mail",

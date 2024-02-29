@@ -2,10 +2,17 @@ import { connectToDB } from "../db.connect";
 import { Message } from "../models/message";
 
 //get gallery
-export const GetAllMessages = async () => {
+export const GetAllMessages = async (message) => {
 	try {
 		connectToDB();
-		const messages = await Message.find();
+		let query = {};
+		if (message === "From contacted") {
+			query.property = { $exists: false };
+		} else if (message === "From properties") {
+			query.property = { $exists: true };
+		}
+
+		const messages = await Message.find(query);
 		return messages;
 	} catch (err) {
 		//console.log(err);

@@ -8,10 +8,10 @@ import { AuthSchema } from "@/utils/validators/authentication/auth.schema";
 import { useForm } from "react-hook-form";
 import { AuthSignUp } from "@/lib/actions/auth/signup";
 import { GoogleLogin } from "@/lib/actions/auth/login";
-import { useFormStatus } from "react-dom";
 
 const Signup = () => {
 	const [error, setError] = useState("");
+	const [submiting, setSubmiting] = useState(false);
 
 	const {
 		handleSubmit,
@@ -23,10 +23,11 @@ const Signup = () => {
 
 	const onSubmit = (data) => {
 		setError("");
-
+		setSubmiting(true);
 		//server action
 		AuthSignUp(data).then((data) => {
 			setError(data.error);
+			setSubmiting(false);
 		});
 	};
 	return (
@@ -75,7 +76,9 @@ const Signup = () => {
 					</p>
 				)}
 
-				<SubmitBtn />
+				<button className="direct-btn" disabled={submiting}>
+					{submiting ? <p>submiting...</p> : <p>Sign up</p>}
+				</button>
 			</form>
 			<div className="or-container">
 				<p>OR</p>
@@ -101,13 +104,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-const SubmitBtn = () => {
-	const { pending } = useFormStatus();
-
-	return (
-		<button className="direct-btn" disabled={pending}>
-			{pending ? <p>submiting...</p> : <p>Signup</p>}
-		</button>
-	);
-};

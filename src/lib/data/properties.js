@@ -67,7 +67,7 @@ export const GetFeaturedProperties = async () => {
 };
 
 //get popular properties
-export const GetPOpularProperties = async () => {
+export const GetPopularProperties = async () => {
 	try {
 		connectToDB();
 		const properties = await Property.find({ popular: true });
