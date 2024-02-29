@@ -1,0 +1,82 @@
+@import "./../../../theme/theme.scss";
+
+.a-properties {
+	@include themify($themes) {
+		width: 100%;
+
+		.ap-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			h6 {
+				color: white;
+				text-transform: lowercase;
+			}
+		}
+
+		.property-container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+
+			.ap-prop {
+				margin: 20px;
+				height: auto;
+				width: 100%;
+				display: grid;
+				grid-auto-rows: minmax(300px, auto);
+				grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+				gap: 20px 20px;
+				justify-content: flex-start;
+				align-content: flex-start;
+
+				@media (max-width: 450px) {
+					grid-template-columns: repeat(
+						auto-fit,
+						minmax(100px, 500px)
+					);
+				}
+
+				@media (max-width: 1000px) {
+					justify-content: center;
+				}
+
+				&.ap-prop2 {
+					justify-content: center;
+				}
+
+				.property-box {
+					width: 100%;
+					height: 100%;
+				}
+
+				.property-box-add {
+					border: 1px dashed themed("border");
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+
+					.tb-add {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						gap: 5px;
+
+						h4 {
+							font-size: 15px;
+							color: themed("border");
+						}
+
+						.tb-add {
+							color: themed(border);
+							font-size: 30px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

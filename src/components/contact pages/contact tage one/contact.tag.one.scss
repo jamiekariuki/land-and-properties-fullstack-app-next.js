@@ -1,0 +1,122 @@
+@import "./../../..//theme/theme.scss";
+
+.contact-tag-one {
+	@include themify($themes) {
+		width: 100%;
+		overflow: hidden;
+
+		.contact-1 {
+			margin-top: 30px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 20px;
+			flex-direction: column;
+			margin-bottom: 30px;
+
+			h3,
+			p {
+				text-align: center;
+				max-width: 600px;
+			}
+		}
+
+		.split-left {
+			.contact-left {
+				width: 100%;
+				padding: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 20px;
+
+				p {
+					max-width: 400px;
+					text-align: center;
+				}
+
+				.contact-icons {
+					display: flex;
+					align-items: center;
+					gap: 3vw;
+
+					.contact-icon {
+						color: $secondary;
+						font-size: 17px;
+						transition: all 0.3s;
+						cursor: pointer;
+
+						&:hover {
+							scale: 1.2;
+						}
+					}
+				}
+
+				button {
+					border: 0;
+					background-color: $secondary;
+					padding: 5px 20px;
+					cursor: pointer;
+
+					&:disabled {
+						background-color: $secondaryDisabled;
+						cursor: not-allowed;
+					}
+
+					p {
+						color: white;
+					}
+				}
+			}
+		}
+
+		.split-right {
+			.contact-right {
+				width: 100%;
+				max-width: 400px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 5px;
+
+				@media (max-width: 900px) {
+					max-width: none;
+
+					.contact-form {
+						max-width: 400px;
+					}
+
+					button {
+						max-width: 400px;
+					}
+				}
+
+				.contact-form {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					gap: 5px;
+
+					h6 {
+						font-size: 16px;
+					}
+				}
+
+				button {
+					border: 0;
+					background-color: $secondary;
+					padding: 7px 20px;
+					cursor: pointer;
+					width: 100%;
+
+					p {
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}

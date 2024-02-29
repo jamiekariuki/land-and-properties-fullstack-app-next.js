@@ -1,0 +1,173 @@
+@import "./../../theme/theme.scss";
+
+.footer {
+	@include themify($themes) {
+		margin-top: 50px;
+		background-color: $main;
+		padding: 40px 20px 10px 20px;
+
+		.footer-container {
+			display: flex;
+			gap: 20px;
+
+			@media (max-width: 700px) {
+				flex-direction: column;
+			}
+			//	flex-direction: column;
+
+			.footer-cont {
+				flex: 1;
+				min-width: 200px;
+				display: flex;
+				justify-content: center;
+
+				h1,
+				p,
+				h6,
+				h3,
+				h5,
+				h2,
+				h4,
+				li {
+					color: white;
+				}
+			}
+
+			.fl-cont {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 13px;
+
+				input {
+					background-color: themed("background");
+					width: 100%;
+					height: 35px;
+					border: 1px solid themed("border");
+					outline: none;
+					padding: 3px 7px;
+					//border-radius: 5px;
+					color: themed("titleColor");
+					transition: 0.3s ease;
+					font-family: var(--font-cormorant);
+
+					&:hover {
+						border: 1px solid themed("titleColor");
+					}
+
+					&:focus {
+						border: 1px solid $main;
+					}
+
+					&:disabled {
+						border: 1px solid themed("disabled");
+					}
+				}
+
+				button {
+					padding: 5px;
+					width: 100%;
+					border: 0;
+					background-color: $secondary;
+					cursor: pointer;
+
+					&:disabled {
+						background-color: $secondaryDisabled;
+						cursor: not-allowed;
+					}
+
+					p {
+						color: white;
+					}
+				}
+
+				.fl-company {
+					margin-top: 20px;
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+
+					h6 {
+						font-size: 20px;
+						font-family: sans-serif;
+						font-weight: 700;
+						color: white;
+						span {
+							color: $secondary;
+						}
+					}
+
+					p {
+						font-size: 16px;
+					}
+				}
+			}
+
+			.fm-cont {
+				ul {
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+
+					li {
+						cursor: pointer;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
+			.fr-cont {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				@media (max-width: 700px) {
+					align-items: center;
+					justify-content: center;
+				}
+
+				.social-links {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					cursor: pointer;
+
+					&:hover {
+						p {
+							text-decoration: underline;
+						}
+					}
+
+					.footer-icon {
+						color: $secondary;
+					}
+				}
+			}
+		}
+
+		.footer-copyright {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+
+			p {
+				color: rgb(226, 226, 226);
+				font-size: 13px;
+				font-family: sans-serif;
+				text-align: center;
+
+				span {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}

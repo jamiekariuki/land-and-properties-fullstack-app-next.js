@@ -1,0 +1,22 @@
+@import "../../../../../theme/theme.scss";
+
+.account-menu {
+	@include themify($themes) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+
+		.avatar-container {
+			width: 35px;
+			height: 35px;
+			overflow: hidden;
+			position: relative;
+			border-radius: 50%;
+
+			.avatar-image {
+				object-fit: cover;
+			}
+		}
+	}
+}

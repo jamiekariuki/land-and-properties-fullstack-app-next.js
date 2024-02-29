@@ -1,0 +1,105 @@
+@import "../../../theme/theme.scss";
+
+.plugins {
+	@include themify($themes) {
+		width: 100%;
+
+		.plugin-container {
+			width: 97%;
+			display: flex;
+			position: absolute;
+			top: 118px;
+			bottom: 5px;
+
+			.plugin-left {
+				flex: 1;
+				height: 100%;
+				overflow-y: scroll;
+				border-right: 1px solid themed("hover");
+				padding: 10px 6px;
+
+				@media (max-width: 900px) {
+					flex: 2;
+				}
+
+				@media (max-width: 600px) {
+					flex: none;
+					width: 100%;
+					border: 0;
+				}
+
+				&.plugin-left-mobile {
+					@media (max-width: 600px) {
+						display: none;
+					}
+				}
+
+				.left-container {
+					display: flex;
+					flex-direction: column;
+					gap: 7px;
+					width: 100%;
+
+					.plugins-list {
+						border-bottom: 1px solid themed("hover");
+						display: flex;
+						flex-direction: column;
+						cursor: pointer;
+						width: 100%;
+						padding: 6px;
+						transition: all 0.3s;
+						gap: 2px;
+
+						&:hover {
+							background-color: themed("info");
+						}
+
+						.card-top {
+							display: flex;
+							flex-direction: column;
+						}
+						.time-p {
+							display: flex;
+							align-items: flex-end;
+							justify-content: flex-end;
+							p {
+								font-size: 11px;
+							}
+						}
+					}
+				}
+			}
+			.plugin-right {
+				flex: 4;
+				height: 100%;
+				overflow-y: scroll;
+
+				.empty {
+					height: 100%;
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					h2 {
+						color: themed("border");
+					}
+				}
+
+				@media (max-width: 900px) {
+					flex: 4;
+				}
+
+				@media (max-width: 600px) {
+					width: 100%;
+				}
+
+				&.plugin-right-mobile {
+					@media (max-width: 600px) {
+						flex: none;
+					}
+				}
+			}
+		}
+	}
+}
