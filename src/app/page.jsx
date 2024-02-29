@@ -11,7 +11,6 @@ import TagSix from "@/components/landing pages/tag six/tag.six";
 const PageHome = () => {
 	return (
 		<div>
-			home
 			<Hero />
 			<TagOne />
 			<TagTwo />
