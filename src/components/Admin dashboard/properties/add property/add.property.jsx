@@ -153,7 +153,7 @@ const AddProperty = () => {
 				<Checkbox2
 					control={control}
 					label={"Popular"}
-					name={"populard"}
+					name={"popular"}
 				/>
 
 				<div className="add-property">

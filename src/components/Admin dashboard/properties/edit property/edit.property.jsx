@@ -158,7 +158,7 @@ const EditProperty = ({ item }) => {
 				<Checkbox2
 					control={control}
 					label={"Popular"}
-					name={"populard"}
+					name={"popular"}
 				/>
 
 				<div className="edit-property">
