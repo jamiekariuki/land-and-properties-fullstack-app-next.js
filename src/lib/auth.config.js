@@ -56,8 +56,6 @@ export const authConfig = {
 			const nextUrl = request.nextUrl;
 			const user = auth?.user;
 
-		
-
 			const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
 			//const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
 			const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
@@ -69,7 +67,7 @@ export const authConfig = {
 
 			//none admins shouldnt go to dash
 			if (isAdminRoute && !user?.role === "user") {
-				return false;
+				return Response.redirect(new URL("/", nextUrl));
 			}
 
 			//if in login pages , redirected to respective pages

@@ -12,6 +12,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoIosPodium } from "react-icons/io";
 import Image from "next/image";
 import { AuthLogout } from "@/lib/actions/auth/logout";
+import Link from "next/link";
 
 export default function AccountMenu2({ user }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -120,12 +121,14 @@ export default function AccountMenu2({ user }) {
 					<h5>Add account</h5>
 				</MenuItem> */}
 				{user?.role !== "user" && (
-					<MenuItem onClick={handleClose}>
-						<ListItemIcon>
-							<IoIosPodium style={{ fontSize: "25px" }} />
-						</ListItemIcon>
-						<p style={{ fontSize: "17px" }}>Dashboard</p>
-					</MenuItem>
+					<Link href={"dashboard/users"}>
+						<MenuItem onClick={handleClose}>
+							<ListItemIcon>
+								<IoIosPodium style={{ fontSize: "25px" }} />
+							</ListItemIcon>
+							<p style={{ fontSize: "17px" }}>Dashboard</p>
+						</MenuItem>
+					</Link>
 				)}
 
 				<form action={AuthLogout}>
