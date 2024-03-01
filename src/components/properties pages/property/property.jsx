@@ -75,7 +75,7 @@ const Property = ({ item }) => {
 			<div className="property-container">
 				<div className="property-top">
 					<div className="pt-left">
-						<div className="pt-slider-container">
+						{/* <div className="pt-slider-container">
 							<div className="pt-image-container">
 								<Image
 									src={item.picture[pic]}
@@ -103,7 +103,7 @@ const Property = ({ item }) => {
 									</div>
 								))}
 							</div>
-						</div>
+						</div> */}
 					</div>
 					<div className="pt-right">
 						<div className="property-info">
