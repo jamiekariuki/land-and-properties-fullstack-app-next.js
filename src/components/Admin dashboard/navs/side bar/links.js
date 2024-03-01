@@ -16,20 +16,21 @@ export const NavigationLinks = [
 		link: "/dashboard/users",
 	},
 	{
-		icon: <BsFillImageFill className="nav-icons" />,
-		text: "Gallery",
-		link: "/dashboard/gallery",
-	},
-	{
-		icon: <BsHousesFill className="nav-icons" />,
-		text: "properties",
-		link: "/dashboard/properties",
-	},
-	{
 		icon: <BsChatLeftTextFill className="nav-icons" />,
 		text: "Messages",
 		link: "/dashboard/messages",
 	},
+	{
+		icon: <BsHousesFill className="nav-icons" />,
+		text: "Properties",
+		link: "/dashboard/properties",
+	},
+	{
+		icon: <BsFillImageFill className="nav-icons" />,
+		text: "Gallery",
+		link: "/dashboard/gallery",
+	},
+
 	/*{
 		icon: <BsEnvelopeAtFill className="nav-icons" />,
 		text: "mail",

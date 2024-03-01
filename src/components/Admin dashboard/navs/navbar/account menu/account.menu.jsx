@@ -4,7 +4,7 @@ import { DarkMode } from "../dark mode/dark.mode";
 import "./account.menu.scss";
 import Image from "next/image";
 
-export default function AccountMenu() {
+export default function AccountMenu({ user }) {
 	return (
 		<div className="account-menu">
 			<DarkMode />
@@ -14,7 +14,9 @@ export default function AccountMenu() {
 				<Image
 					className="avatar-image"
 					src={
-						"https://i.postimg.cc/y6gj5YXW/smiley-man-with-camera.jpg"
+						user?.image
+							? user?.image
+							: "https://i.postimg.cc/fTkF2P9H/download.jpg"
 					}
 					alt="avatar"
 					fill={true}

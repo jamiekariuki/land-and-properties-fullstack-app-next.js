@@ -5,7 +5,6 @@ import { cookies } from "next/headers";
 import Navbar from "@/components/landing navbar/navbar";
 import Sidebar from "@/components/landing navbar/sidebar/Sidebar";
 import Footer from "@/components/landing footer/footer";
-
 import Toast from "@/components/styled components/toast/toast";
 import { ToastProvider } from "@/context/toastContext";
 import { currentServerUser } from "@/utils/get current user/get.current.server.user";

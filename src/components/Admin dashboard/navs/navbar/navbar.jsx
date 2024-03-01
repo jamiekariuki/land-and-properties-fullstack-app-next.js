@@ -6,7 +6,7 @@ import { SlMenu } from "react-icons/sl";
 import AccountMenu from "./account menu/account.menu";
 import MobileSideBarNav from "../side bar/mobile side bar/mobile.sidebar";
 
-export const AdminNavbar = () => {
+export const AdminNavbar = ({ user }) => {
 	const [mobileSideBar, setMobileSideBar] = useState(false);
 
 	const handleMobileSidebarToggle = () => {
@@ -40,7 +40,7 @@ export const AdminNavbar = () => {
 				</div>
 
 				<div className="right">
-					<AccountMenu />
+					<AccountMenu user={user} />
 					{/*  <DarkMode />  */}
 				</div>
 			</div>
