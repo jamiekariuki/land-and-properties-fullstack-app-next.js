@@ -70,7 +70,11 @@ const Property = ({ item }) => {
 		});
 	}; */
 
-	return <div className="property"></div>;
+	return (
+		<div className="property">
+			<h1>{item.title}</h1>
+		</div>
+	);
 };
 
 export default Property;
