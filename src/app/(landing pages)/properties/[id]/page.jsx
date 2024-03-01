@@ -10,6 +10,8 @@ const PropertyPage = async ({ params }) => {
 	const serializedProperties = JSON.stringify(properties);
 	const parsedProperties = JSON.parse(serializedProperties);
 
+	console.log(parsedProperties);
+
 	return (
 		<div>
 			{/* <PageHero

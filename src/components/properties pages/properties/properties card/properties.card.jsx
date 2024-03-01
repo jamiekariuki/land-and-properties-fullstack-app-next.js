@@ -10,7 +10,7 @@ const PropertiesCard = ({ item }) => {
 	return (
 		<div className="p-cont">
 			<div className="p-left">
-				<Link href={`/properties/${item._id}`} as={"image"}>
+				<Link href={`/properties/${item._id}`}>
 					<div className="p-image-cont">
 						<Image
 							alt="property-image"
