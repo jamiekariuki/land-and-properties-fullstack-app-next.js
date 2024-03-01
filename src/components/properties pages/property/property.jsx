@@ -26,7 +26,7 @@ import { addMessage } from "@/lib/actions/message";
 import { MessageSchema } from "@/utils/validators/message.schema";
 
 const Property = ({ item }) => {
-	const [pic, setPic] = useState(0);
+	/* const [pic, setPic] = useState(0);
 
 	const AmenitiesArray = item.amenities.split(",").map((word) => word.trim());
 
@@ -68,7 +68,7 @@ const Property = ({ item }) => {
 			setSuccess(data?.success);
 			setSubmiting(false);
 		});
-	};
+	}; */
 
 	return (
 		<div className="property">
