@@ -68,8 +68,11 @@ export const authConfig = {
 			//none admins shouldnt go to dash
 			if (isAdminRoute) {
 				if (user) {
-					if (!user?.role === "user") {
-						return null;
+					if (
+						user?.role === "admin" ||
+						user?.role === "super admin"
+					) {
+						return true;
 					} else {
 						return Response.redirect(new URL("/", nextUrl));
 					}
