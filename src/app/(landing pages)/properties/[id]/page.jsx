@@ -1,5 +1,5 @@
 //import Property from "@/components/properties pages/property/property";
-//import PageHero from "@/components/styled components/page hero/page.hero";
+import PageHero from "@/components/styled components/page hero/page.hero";
 import { GetProperty } from "@/lib/data/properties";
 import React from "react";
 
@@ -12,12 +12,12 @@ const PropertyPage = async ({ params }) => {
 
 	return (
 		<div>
-			{/* <PageHero
+			<PageHero
 				title={"Property"}
 				image={
 					"https://i.postimg.cc/ZRHR2SvH/aerial-photography-town-during-daytime.jpg"
 				}
-			/> */}
+			/>
 			{/* <Property item={parsedProperties} /> */}
 		</div>
 	);
