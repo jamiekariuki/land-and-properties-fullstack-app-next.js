@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+/* import React, { useEffect, useState } from "react";
 import "./property.scss";
 import { PropertiesData } from "../properties/property";
 import { IoLocationOutline } from "react-icons/io5";
@@ -23,7 +23,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useToast } from "@/context/toastContext";
 import { addMessage } from "@/lib/actions/message";
-import { MessageSchema } from "@/utils/validators/message.schema";
+import { MessageSchema } from "@/utils/validators/message.schema"; */
 
 const Property = ({ item }) => {
 	/* const [pic, setPic] = useState(0);
