@@ -105,7 +105,7 @@ const Property = ({ item }) => {
 							</div>
 						</div> */}
 					</div>
-					<div className="pt-right">
+					{/* <div className="pt-right">
 						<div className="property-info">
 							<div>
 								<h3>{item.title}</h3>
@@ -126,10 +126,10 @@ const Property = ({ item }) => {
 								<IoLocationOutline className="save-icon" />
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 				<div className="property-bottom">
-					<div className="pb-left">
+					{/* <div className="pb-left">
 						<form
 							className="pb-form-container"
 							onSubmit={handleSubmit(onSubmit)}
@@ -186,14 +186,14 @@ const Property = ({ item }) => {
 								{submiting ? <p>Sending...</p> : <p>Send</p>}
 							</button>
 						</form>
-					</div>
+					</div> */}
 					<div className="pb-right">
 						{/* 	<MapC coordinates={item.coordinates} /> */}
 					</div>
 				</div>
 
 				<div className="more-info">
-					<h5>More information about this property:</h5>
+					{/* <h5>More information about this property:</h5>
 					<div className="more-info-cont">
 						{item.amenities && (
 							<>
@@ -252,7 +252,7 @@ const Property = ({ item }) => {
 								<h6>12 months Instalments</h6>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 
 				{
