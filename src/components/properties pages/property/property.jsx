@@ -1,7 +1,6 @@
 "use client";
-/* import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./property.scss";
-import { PropertiesData } from "../properties/property";
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
@@ -11,22 +10,21 @@ import {
 	TextArea2,
 } from "@/components/styled components/inputs/inputs";
 import dynamic from "next/dynamic";
-import PropertiesCard2 from "../properties/properties2 card/properties2";
 import { BsPinFill } from "react-icons/bs";
 import { MdApartment } from "react-icons/md";
 import { MdAnnouncement } from "react-icons/md";
 import { FaRegCreditCard } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
-//const MapC = dynamic(() => import("./map"), { ssr: false });
+const MapC = dynamic(() => import("./map"), { ssr: false });
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useToast } from "@/context/toastContext";
 import { addMessage } from "@/lib/actions/message";
-import { MessageSchema } from "@/utils/validators/message.schema"; */
+import { MessageSchema } from "@/utils/validators/message.schema";
 
 const Property = ({ item }) => {
-	/* const [pic, setPic] = useState(0);
+	const [pic, setPic] = useState(0);
 
 	const AmenitiesArray = item.amenities.split(",").map((word) => word.trim());
 
@@ -68,14 +66,14 @@ const Property = ({ item }) => {
 			setSuccess(data?.success);
 			setSubmiting(false);
 		});
-	}; */
+	};
 
 	return (
 		<div className="property">
 			<div className="property-container">
 				<div className="property-top">
 					<div className="pt-left">
-						{/* <div className="pt-slider-container">
+						<div className="pt-slider-container">
 							<div className="pt-image-container">
 								<Image
 									src={item.picture[pic]}
@@ -103,9 +101,9 @@ const Property = ({ item }) => {
 									</div>
 								))}
 							</div>
-						</div> */}
+						</div>
 					</div>
-					{/* <div className="pt-right">
+					<div className="pt-right">
 						<div className="property-info">
 							<div>
 								<h3>{item.title}</h3>
@@ -126,10 +124,10 @@ const Property = ({ item }) => {
 								<IoLocationOutline className="save-icon" />
 							</div>
 						</div>
-					</div> */}
+					</div>
 				</div>
 				<div className="property-bottom">
-					{/* <div className="pb-left">
+					<div className="pb-left">
 						<form
 							className="pb-form-container"
 							onSubmit={handleSubmit(onSubmit)}
@@ -186,14 +184,14 @@ const Property = ({ item }) => {
 								{submiting ? <p>Sending...</p> : <p>Send</p>}
 							</button>
 						</form>
-					</div> */}
+					</div>
 					<div className="pb-right">
-						{/* 	<MapC coordinates={item.coordinates} /> */}
+						<MapC coordinates={item.coordinates} />
 					</div>
 				</div>
 
 				<div className="more-info">
-					{/* <h5>More information about this property:</h5>
+					<h5>More information about this property:</h5>
 					<div className="more-info-cont">
 						{item.amenities && (
 							<>
@@ -252,7 +250,7 @@ const Property = ({ item }) => {
 								<h6>12 months Instalments</h6>
 							</div>
 						</div>
-					</div> */}
+					</div>
 				</div>
 			</div>
 		</div>
