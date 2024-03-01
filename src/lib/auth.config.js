@@ -66,8 +66,16 @@ export const authConfig = {
 			}
 
 			//none admins shouldnt go to dash
-			if (isAdminRoute && !user?.role === "user") {
-				return Response.redirect(new URL("/", nextUrl));
+			if (isAdminRoute) {
+				if (user) {
+					if (!user?.role === "user") {
+						return null;
+					} else {
+						return Response.redirect(new URL("/", nextUrl));
+					}
+				} else {
+					return Response.redirect(new URL("/", nextUrl));
+				}
 			}
 
 			//if in login pages , redirected to respective pages
