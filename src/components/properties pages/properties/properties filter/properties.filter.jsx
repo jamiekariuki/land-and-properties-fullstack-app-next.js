@@ -5,6 +5,7 @@ import Search from "@/components/styled components/inputs/search";
 import { InputPlain } from "@/components/styled components/inputs/inputs";
 import { SelectOptionPlain } from "@/components/styled components/inputs/select.option";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 const PropertiesFilter = () => {
 	const [location, setLocation] = useState("");
@@ -28,7 +29,7 @@ const PropertiesFilter = () => {
 		replace(`${pathname}?${params}`);
 	};
 
-	const handleMinPrice = (e) => {
+	const handleMinPrice = useDebouncedCallback((e) => {
 		setMinPrice(e);
 		const params = new URLSearchParams(searchParams);
 		if (e) {
@@ -37,9 +38,9 @@ const PropertiesFilter = () => {
 			params.delete("min");
 		}
 		replace(`${pathname}?${params}`);
-	};
+	}, 300);
 
-	const handleMaxPrice = (e) => {
+	const handleMaxPrice = useDebouncedCallback((e) => {
 		setMaxPrice(e);
 		const params = new URLSearchParams(searchParams);
 		if (e) {
@@ -48,7 +49,7 @@ const PropertiesFilter = () => {
 			params.delete("max");
 		}
 		replace(`${pathname}?${params}`);
-	};
+	}, 300);
 
 	return (
 		<div className="properties-filter">

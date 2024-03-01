@@ -17,7 +17,7 @@ import { MdApartment } from "react-icons/md";
 import { MdAnnouncement } from "react-icons/md";
 import { FaRegCreditCard } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
-const MapC = dynamic(() => import("./map"), { ssr: false });
+//const MapC = dynamic(() => import("./map"), { ssr: false });
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -188,7 +188,7 @@ const Property = ({ item }) => {
 						</form>
 					</div>
 					<div className="pb-right">
-						<MapC coordinates={item.coordinates} />
+						{/* 	<MapC coordinates={item.coordinates} /> */}
 					</div>
 				</div>
 

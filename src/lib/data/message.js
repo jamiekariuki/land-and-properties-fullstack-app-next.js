@@ -7,9 +7,9 @@ export const GetAllMessages = async (message) => {
 		connectToDB();
 		let query = {};
 		if (message === "From contacted") {
-			query.property = { $exists: false };
+			query.property.title = { $exists: false };
 		} else if (message === "From properties") {
-			query.property = { $exists: true };
+			query.property.title = { $exists: true };
 		}
 
 		const messages = await Message.find(query);
