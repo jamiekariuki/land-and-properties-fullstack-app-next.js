@@ -6,6 +6,7 @@ import { BsFillImageFill } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 import { BsStack } from "react-icons/bs";
 import { IoIosLogOut } from "react-icons/io";
+import { BsArrowUpRightSquare } from "react-icons/bs";
 
 //----dashboard
 
@@ -29,6 +30,12 @@ export const NavigationLinks = [
 		icon: <BsFillImageFill className="nav-icons" />,
 		text: "Gallery",
 		link: "/dashboard/gallery",
+	},
+
+	{
+		icon: <BsArrowUpRightSquare className="nav-icons" />,
+		text: "Home page",
+		link: "/",
 	},
 
 	/*{
