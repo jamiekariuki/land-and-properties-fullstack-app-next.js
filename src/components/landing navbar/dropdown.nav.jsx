@@ -121,7 +121,7 @@ export default function AccountMenu2({ user }) {
 					<h5>Add account</h5>
 				</MenuItem> */}
 				{user?.role !== "user" && (
-					<Link href={"dashboard/users"}>
+					<Link href={"/dashboard/users"}>
 						<MenuItem onClick={handleClose}>
 							<ListItemIcon>
 								<IoIosPodium style={{ fontSize: "25px" }} />
