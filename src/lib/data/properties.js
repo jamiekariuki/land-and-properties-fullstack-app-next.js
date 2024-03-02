@@ -34,6 +34,8 @@ export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
 			query.location = { $regex: new RegExp(location, "i") }; // Case-insensitive location search
 		}
 
+		await new Promise((resolve) => setTimeout(resolve, 8000));
+
 		const properties = await Property.find(query);
 
 		return properties;
