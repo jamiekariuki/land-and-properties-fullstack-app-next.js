@@ -1,8 +1,6 @@
 import Properties from "@/components/properties pages/properties/properties";
-import LoadingSpiner from "@/components/styled components/loading/loading.spiner";
 import PageHero from "@/components/styled components/page hero/page.hero";
 import { GetAllProperties } from "@/lib/data/properties";
-import React, { Suspense } from "react";
 
 const Propertiespage = async ({ searchParams }) => {
 	const q = searchParams?.q || "";
@@ -22,9 +20,8 @@ const Propertiespage = async ({ searchParams }) => {
 					"https://i.postimg.cc/3JSs6nKg/pexels-arthouse-studio-4326847.jpg"
 				}
 			/>
-			<Suspense fallback={<LoadingSpiner />}>
-				<Properties properties={parsedProperties} />
-			</Suspense>
+
+			<Properties properties={parsedProperties} />
 		</div>
 	);
 };
