@@ -1,7 +1,7 @@
 import LoadingSpiner from "@/components/styled components/loading/loading.spiner";
 import React from "react";
 
-const loading = () => {
+const Loading = () => {
 	return (
 		<div>
 			<LoadingSpiner />
@@ -9,4 +9,4 @@ const loading = () => {
 	);
 };
 
-export default loading;
+export default Loading;

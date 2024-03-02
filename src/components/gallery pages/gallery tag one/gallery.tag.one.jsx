@@ -1,10 +1,12 @@
-"use client";
 import React from "react";
 import "./gallery.tag.one.scss";
 import Image from "next/image";
-import { sliderData } from "@/components/landing pages/hero/slides.data";
+import { GetAllGallery } from "@/lib/data/gallery";
 
-const GalleryTagOne = ({ pictures }) => {
+const GalleryTagOne = async () => {
+	const pictures = await GetAllGallery();
+	const serializedpictures = JSON.stringify(pictures);
+	const parsedpictures = JSON.parse(serializedpictures);
 	return (
 		<div className="gallery-tag-one">
 			<div className="gallery-1">
@@ -15,7 +17,7 @@ const GalleryTagOne = ({ pictures }) => {
 				</p>
 			</div>
 			<div className="gallery">
-				{pictures.map((item, index) => (
+				{parsedpictures.map((item, index) => (
 					<div className="gallery-box" key={index}>
 						<GalleryCard pic={item.picture} />
 					</div>

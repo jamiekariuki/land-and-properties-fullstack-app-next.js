@@ -1,12 +1,10 @@
 import GalleryTagOne from "@/components/gallery pages/gallery tag one/gallery.tag.one";
 import Cta from "@/components/landing pages/cta/cta";
+import LoadingSpiner from "@/components/styled components/loading/loading.spiner";
 import PageHero from "@/components/styled components/page hero/page.hero";
-import { GetAllGallery } from "@/lib/data/gallery";
+import { Suspense } from "react";
 
-const AboutPage = async () => {
-	const pictures = await GetAllGallery();
-	const serializedpictures = JSON.stringify(pictures);
-	const parsedpictures = JSON.parse(serializedpictures);
+const GalleryPage = async () => {
 	return (
 		<div>
 			<PageHero
@@ -15,10 +13,12 @@ const AboutPage = async () => {
 					"https://i.postimg.cc/MG93YJNN/pexels-nico-becker-5850641.jpg"
 				}
 			/>
-			<GalleryTagOne pictures={parsedpictures} />
+			<Suspense fallback={<LoadingSpiner />}>
+				<GalleryTagOne />
+			</Suspense>
 			<Cta />
 		</div>
 	);
 };
 
-export default AboutPage;
+export default GalleryPage;
