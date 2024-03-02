@@ -3,15 +3,17 @@ import "./loading.spinner.scss";
 
 const LoadingSpiner = () => {
 	return (
-		<div className="dot-spinner">
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
-			<div className="dot-spinner__dot"></div>
+		<div className="loading-spiner">
+			<div className="dot-spinner">
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+				<div className="dot-spinner__dot"></div>
+			</div>
 		</div>
 	);
 };
