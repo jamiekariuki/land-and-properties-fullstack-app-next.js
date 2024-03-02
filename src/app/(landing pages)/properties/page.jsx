@@ -2,18 +2,8 @@ import Properties from "@/components/properties pages/properties/properties";
 import LoadingSpiner from "@/components/styled components/loading/loading.spiner";
 import PageHero from "@/components/styled components/page hero/page.hero";
 import { Suspense } from "react";
-//import { GetAllProperties } from "@/lib/data/properties";
 
-const Propertiespage = async ({ searchParams }) => {
-	/* const q = searchParams?.q || "";
-	const location = searchParams?.location || "";
-	const min = searchParams?.min || "";
-	const max = searchParams?.max || "";
-	const properties = await GetAllProperties(q, location, min, max);
-
-	const serializedProperties = JSON.stringify(properties);
-	const parsedProperties = JSON.parse(serializedProperties); */
-
+const Propertiespage = ({ searchParams }) => {
 	return (
 		<div>
 			<PageHero

@@ -1,15 +1,9 @@
-import Property from "@/components/properties pages/property/property";
+import PropertyServer from "@/components/properties pages/property/property.server";
+import LoadingSpiner from "@/components/styled components/loading/loading.spiner";
 import PageHero from "@/components/styled components/page hero/page.hero";
-import { GetProperty } from "@/lib/data/properties";
-import React from "react";
+import React, { Suspense } from "react";
 
-const PropertyPage = async ({ params }) => {
-	const id = params.id;
-
-	const properties = await GetProperty(id);
-	const serializedProperties = JSON.stringify(properties);
-	const parsedProperties = JSON.parse(serializedProperties);
-
+const PropertyPage = ({ params }) => {
 	return (
 		<div>
 			<PageHero
@@ -18,7 +12,9 @@ const PropertyPage = async ({ params }) => {
 					"https://i.postimg.cc/ZRHR2SvH/aerial-photography-town-during-daytime.jpg"
 				}
 			/>
-			<Property item={parsedProperties} />
+			<Suspense fallback={<LoadingSpiner />}>
+				<PropertyServer params={params} />
+			</Suspense>
 		</div>
 	);
 };
