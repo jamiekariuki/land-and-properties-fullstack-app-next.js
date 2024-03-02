@@ -30,6 +30,8 @@ const Backgound = () => {
 							alt="background photo"
 							fill={true}
 							className="bg-image"
+							placeholder="blur"
+							blurDataURL={rgbDataURL(255, 255, 255)}
 						/>
 					</div>
 				))}
