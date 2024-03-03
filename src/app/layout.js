@@ -8,6 +8,7 @@ import Footer from "@/components/landing footer/footer";
 import Toast from "@/components/styled components/toast/toast";
 import { ToastProvider } from "@/context/toastContext";
 import { currentServerUser } from "@/utils/get current user/get.current.server.user";
+import NextTopLoader from "nextjs-toploader";
 
 //fonts
 const cormorant = Cormorant({
@@ -47,6 +48,7 @@ export default async function RootLayout({ children }) {
 	return (
 		<html lang="en" className={`${cormorant.variable} ${bodoni.variable} `}>
 			<body>
+				<NextTopLoader color="#e82e59" />
 				<ToastProvider>
 					<ThemeProvider2 serverDarkMode={darkMode}>
 						<Navbar user={user} />
