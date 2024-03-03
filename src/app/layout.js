@@ -48,7 +48,7 @@ export default async function RootLayout({ children }) {
 	return (
 		<html lang="en" className={`${cormorant.variable} ${bodoni.variable} `}>
 			<body>
-				<NextTopLoader color="#e82e59" template="<div> </div>" />
+				<NextTopLoader color="#e82e59" />
 				<ToastProvider>
 					<ThemeProvider2 serverDarkMode={darkMode}>
 						<Navbar user={user} />
