@@ -9,6 +9,7 @@ import Toast from "@/components/styled components/toast/toast";
 import { ToastProvider } from "@/context/toastContext";
 import { currentServerUser } from "@/utils/get current user/get.current.server.user";
 import NextTopLoader from "nextjs-toploader";
+import ogImage from "./opengraph-image.png";
 
 //fonts
 const cormorant = Cormorant({
@@ -29,12 +30,32 @@ const bodoni = Bodoni_Moda({
 export const metadata = {
 	title: {
 		default: "Peculiarmarc Ventures",
-		template: "%s | Home",
+		template: "%s | Peculiarmarc Ventures",
 	},
 	description:
 		"Peculiarmarc ventures limited delivers real estate soluons at personalized level and is a market leader in providing lands and plots for sale at reasonable and affordable price.",
 	twitter: {
 		card: "summary_large_image",
+	},
+
+	metadataBase: new URL("https://peculiarmarc.vercel.app"),
+	openGraph: {
+		images: [
+			{
+				url: ogImage.src,
+				width: ogImage.width,
+				height: ogImage.height,
+			},
+		],
+	},
+	twitter: {
+		images: [
+			{
+				url: ogImage.src,
+				width: ogImage.width,
+				height: ogImage.height,
+			},
+		],
 	},
 };
 
