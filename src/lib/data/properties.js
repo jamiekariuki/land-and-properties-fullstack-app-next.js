@@ -32,7 +32,7 @@ export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
 		}
 
 		if (location !== "" || location !== "All") {
-			query.location = { $regex: new RegExp(location, "i") }; // Case-insensitive location search
+			query.location = { $regex: new RegExp(location, "i") }; // Case-insensitive location searching
 		}
 
 		//await new Promise((resolve) => setTimeout(resolve, 8000));
