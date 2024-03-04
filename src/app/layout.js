@@ -27,8 +27,15 @@ const bodoni = Bodoni_Moda({
 
 //meta data
 export const metadata = {
-	title: "Peculiarmarc",
-	description: "peculiar",
+	title: {
+		default: "Peculiarmarc Ventures",
+		template: "&s | Home",
+	},
+	description:
+		"Peculiarmarc ventures limited delivers real estate soluons at personalized level and is a market leader in providing lands and plots for sale at reasonable and affordable price.",
+	twitter: {
+		card: "summary_large_image",
+	},
 };
 
 export default async function RootLayout({ children }) {

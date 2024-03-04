@@ -1,6 +1,7 @@
 import { connectToDB } from "@/lib/db.connect";
 import { Property } from "@/lib/models/property";
 import { Wishlist } from "@/lib/models/wishlist";
+import { cache } from "react";
 
 //get properties
 export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
@@ -45,7 +46,7 @@ export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
 	}
 };
 //get single property
-export const GetProperty = async (id) => {
+export const GetProperty = cache(async (id) => {
 	try {
 		connectToDB();
 		const property = await Property.findById(id);
@@ -55,7 +56,7 @@ export const GetProperty = async (id) => {
 		//console.log(err);
 		throw new Error("Failed to fetch property!");
 	}
-};
+});
 // get featured properties
 export const GetFeaturedProperties = async () => {
 	try {

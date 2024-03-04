@@ -56,10 +56,16 @@ const Property = ({ item }) => {
 	const onSubmit = (data) => {
 		setSubmiting(true);
 		//server action
+		if (typeof data.Property !== "object" || data.Property === null) {
+			data.Property = {};
+		}
+
 		data.Property.propertyId = item._id;
 		data.Property.title = item.title;
 		data.Property.description = item.description;
 		data.Property.picture = item.picture;
+
+		console.log(data);
 
 		addMessage(data).then((data) => {
 			setError(data?.error);

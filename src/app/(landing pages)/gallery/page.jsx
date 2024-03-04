@@ -4,6 +4,13 @@ import LoadingSpiner from "@/components/styled components/loading/loading.spiner
 import PageHero from "@/components/styled components/page hero/page.hero";
 import { Suspense } from "react";
 
+//meta data
+export const metadata = {
+	title: "Gallery",
+	description:
+		"Explore Our Gallery: Step into our world and glimpse the essence of Peculiarmarc Ventures Limited through captivating imagery",
+};
+
 const GalleryPage = async () => {
 	return (
 		<div>
