@@ -12,7 +12,7 @@ const PropertiesFilter = () => {
 	const [minPrice, setMinPrice] = useState("");
 	const [maxPrice, setMaxPrice] = useState("");
 
-	const locations = ["Nairobi", "Malindi", "Nakuru", "Lamu", "Narok"];
+	const locations = ["All", "Nairobi", "Malindi", "Nakuru", "Lamu", "Narok"];
 
 	const searchParams = useSearchParams();
 	const { replace } = useRouter();
@@ -33,7 +33,7 @@ const PropertiesFilter = () => {
 		setMinPrice(e);
 		const params = new URLSearchParams(searchParams);
 		if (e) {
-			params.set("min", e);
+			e.length > 4 && params.set("min", e);
 		} else {
 			params.delete("min");
 		}
@@ -44,7 +44,7 @@ const PropertiesFilter = () => {
 		setMaxPrice(e);
 		const params = new URLSearchParams(searchParams);
 		if (e) {
-			params.set("max", e);
+			e.length > 4 && params.set("max", e);
 		} else {
 			params.delete("max");
 		}
