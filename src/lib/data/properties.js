@@ -23,11 +23,11 @@ export const GetAllProperties = async (q, location, minPrice, maxPrice) => {
 			query.price = {}; // Initialize price query object
 
 			if (minPrice) {
-				query.price.$gte = minPrice; // Greater than or equal to minPrice
+				query.price.$gte = parseFloat(minPrice); // Greater than or equal to minPrice
 			}
 
 			if (maxPrice) {
-				query.price.$lte = maxPrice; // Less than or equal to maxPrice
+				query.price.$lte = parseFloat(maxPrice); // Less than or equal to maxPrice
 			}
 		}
 

@@ -25,7 +25,7 @@ const propertySchema = new mongoose.Schema(
 		},
 
 		price: {
-			type: String,
+			type: Number,
 		},
 		priceQuote: {
 			type: String,
